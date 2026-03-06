@@ -25,14 +25,41 @@ app.get("/perguntas", (req,res) => {
     res.send("Perguntas como: precisa de visto? precisa falar espanhol? posso trabalhar? como encontrar moradia?")
 })
 
-app.get("/experiencias", (req,res) => {
-    res.send("Experiências de pessoas e alunos")
+app.get("/experiencias/:idpais", async (req,res) => {
+    try{
+        const idpais = req.params.pais
+        const result = await pool.query(`select * from experiencias where id_pais= ${idpais}`)
+        console.log(result)
+        res.status(200).json(result[0]); 
+    }catch(error){
+        console.error(`erro: ${error}`)
+    }
+})
+
+app.post("/experiencias/:idpais", async (req,res) => {
+    try{
+        const sql = `insert into experiencias (id_pais, data, texto)`;
+        const valores = [req.params.idpais, getDataFormatada(), req.body.texto]
+        const resultado =  await pool.execute(sql,valores);
+        res.status(200).send(resultado[0]);
+    } catch(error){
+        console.error(`Erro: ${error}`);
+    }
 })
 
 app.get("/guia", (req,res) => {
     res.send("Guia para estudantes")
 })
 
-app.get
+function getDataFormatada(){
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    return formattedDate
+}
 
 app.listen(porta, () => { console.log(`servidor na porta ${porta}`) });

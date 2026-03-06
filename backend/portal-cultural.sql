@@ -61,7 +61,14 @@ create table exemplos(
     
 	constraint fk_id_expressao foreign key (id_expressao) references expressoes_idiomaticas(id) on delete cascade
 );
-
+create table experiencias(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    id_pais int not null,
+    texto text,
+    primary key(id),
+    constraint fk_id_pais foreign key (id_pais) 
+    references pais(id)
+);
 # inserts - país
 INSERT INTO pais (id, nome, contexto) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.");
 INSERT INTO pais (id, nome, contexto) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.");
