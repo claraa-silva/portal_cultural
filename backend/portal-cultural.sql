@@ -24,7 +24,7 @@ create table musica(
     link text,
     genero text,
     
-    constraint fk_id_pais foreign key (id_pais) references pais(id) on delete cascade
+    constraint fk_id_pais_mus foreign key (id_pais) references pais(id) on delete cascade
 );
 
 create table comida(
@@ -62,13 +62,24 @@ create table exemplos(
 	constraint fk_id_expressao foreign key (id_expressao) references expressoes_idiomaticas(id) on delete cascade
 );
 create table experiencias(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    id_pais int not null,
+	id INT AUTO_INCREMENT,
+    id_pais char(2) not null,
     texto text,
+    data date,
     primary key(id),
-    constraint fk_id_pais foreign key (id_pais) 
-    references pais(id)
+    
+    constraint fk_id_pais_exp foreign key (id_pais) references pais(id)
 );
+
+create table universidades(
+	id INT AUTO_INCREMENT,
+    id_pais char(2) not null,
+    nome text,
+    primary key(id),
+    
+    constraint fk_id_pais_unis foreign key (id_pais) references pais(id)
+);
+
 # inserts - país
 INSERT INTO pais (id, nome, contexto) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.");
 INSERT INTO pais (id, nome, contexto) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.");
@@ -78,4 +89,45 @@ INSERT INTO pais (id, nome, contexto) VALUES ("PE", 'Peru', "O Peru foi o centro
 INSERT INTO pais (id, nome, contexto) VALUES ("CO", 'Colômbia', "A Colômbia tornou-se independente em 1810 (consolidada em 1819), também sob influência de Simón Bolívar. Durante o século XX, enfrentou conflitos internos entre governo, guerrilhas (como as FARC) e grupos paramilitares. Em 2016, foi assinado um acordo de paz histórico para encerrar décadas de conflito armado.");
 INSERT INTO pais (id, nome, contexto) VALUES ("VE", 'Venezuela', "A Venezuela declarou independência em 1811 e foi peça central nos movimentos liderados por Simón Bolívar. No século XX, destacou-se como grande produtora de petróleo. Desde o final dos anos 1990, passou por profundas transformações políticas com Hugo Chávez e, depois, Nicolás Maduro, enfrentando forte crise econômica, política e migratória.");
 
+INSERT INTO universidades (id_pais, nome) VALUES
+-- Argentina
+('AR', 'Universidad de Buenos Aires'),
+('AR', 'Universidad Nacional de La Plata'),
+('AR', 'Universidad Nacional de Rosario'),
+('AR', 'Universidad Nacional de Misiones'),
+('AR', 'Universidad de Morón'),
+
+-- Bolívia
+('BO', 'Universidad de Aquino Bolivia'),
+('BO', 'Universidad Mayor de San Andrés'),
+('BO', 'Universidad Autónoma Gabriel René Moreno'),
+
+-- Colômbia
+('CO', 'Universidad Nacional de Colombia'),
+('CO', 'Universidad de Antioquia'),
+('CO', 'Pontificia Universidad Javeriana'),
+
+-- Paraguai
+('PY', 'Universidad Nacional de Asunción'),
+('PY', 'Universidad Politécnica y Artística del Paraguay'),
+('PY', 'Universidad Sudamericana'),
+('PY', 'Universidad Autónoma de San Sebastián'),
+
+-- Peru
+('PE', 'Universidad Nacional Mayor de San Marcos'),
+('PE', 'Pontificia Universidad Católica del Perú'),
+('PE', 'Universidad Peruana Cayetano Heredia'),
+
+-- Uruguai
+('UY', 'Universidad de la República'),
+('UY', 'Universidad ORT Uruguay'),
+('UY', 'Universidad Católica del Uruguay'),
+
+-- Venezuela
+('VE', 'Universidad Central de Venezuela'),
+('VE', 'Universidad de Los Andes'),
+('VE', 'Universidad Simón Bolívar');
+
 select * from pais; 
+select * from experiencias;
+select * from universidades;
