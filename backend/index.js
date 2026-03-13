@@ -13,8 +13,15 @@ app.use(bodyparser.json());
 
 app.use("/paises", require("./routes/paises"))
 
-app.get("/universidades", (req,res) => {
-    res.send("Lista de universidades");
+app.get("/universidades/:idpais", async (req,res) => {
+    try {
+        const idpais = req.params.idpais
+        const resultado = await pool.execute(`select * from universidades where id_pais = ${idpais}`)
+        console.log(resultado)
+        res.status(200).json(resultado[0])
+    } catch (error) {
+        console.error(`erro: ${error}`)
+    }
 })
 
 app.get("/bolsas", (req,res) => {
@@ -27,8 +34,8 @@ app.get("/perguntas", (req,res) => {
 
 app.get("/experiencias/:idpais", async (req,res) => {
     try{
-        const idpais = req.params.pais
-        const result = await pool.query(`select * from experiencias where id_pais= ${idpais}`)
+        const idpais = req.params.idpais
+        const result = await pool.query(`select * from experiencias where id_pais = ${idpais}`)
         console.log(result)
         res.status(200).json(result[0]); 
     }catch(error){
@@ -38,7 +45,7 @@ app.get("/experiencias/:idpais", async (req,res) => {
 
 app.post("/experiencias/:idpais", async (req,res) => {
     try{
-        const sql = `insert into experiencias (id_pais, data, texto)`;
+        const sql = `insert into experiencias (id_pais, data, texto) values (?,?,?)`;
         const valores = [req.params.idpais, getDataFormatada(), req.body.texto]
         const resultado =  await pool.execute(sql,valores);
         res.status(200).send(resultado[0]);
