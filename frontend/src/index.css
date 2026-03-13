@@ -7,22 +7,41 @@
 
 /*Navbar*/
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-  }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 15px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #e46116;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: black;
+}
+
+.btn-contato {
+  background-color: #f4a261;
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
