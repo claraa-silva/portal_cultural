@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Carousel = ({ items, autoPlay = true, interval = 3000 }) => {
   const [index, setIndex] = useState(0);
@@ -27,32 +28,39 @@ const Carousel = ({ items, autoPlay = true, interval = 3000 }) => {
     <div style={styles.carousel}>
       <button onClick={prevSlide} style={styles.button}>◀</button>
 
-      <div
-        style={styles.slideContainer}
-        onMouseEnter={() => {
-          setPaused(true);
-          setHover(true);
-        }}
-        onMouseLeave={() => {
-          setPaused(false);
-          setHover(false);
-        }}
+      <Link
+        to={items[index].link}
+        style={{ textDecoration: "none" }}
       >
-        <img
-          src={items[index].image}
-          alt={items[index].title}
-          style={styles.image}
-        />
-
         <div
-          style={{
-            ...styles.overlay,
-            opacity: hover ? 1 : 0
+          style={styles.slideContainer}
+          onMouseEnter={() => {
+            setPaused(true);
+            setHover(true);
+          }}
+          onMouseLeave={() => {
+            setPaused(false);
+            setHover(false);
           }}
         >
-          <h2 style={styles.country}>{items[index].title}</h2>
+          <img
+            src={items[index].image}
+            alt={items[index].title}
+            style={styles.image}
+          />
+
+          <div
+            style={{
+              ...styles.overlay,
+              opacity: hover ? 1 : 0
+            }}
+          >
+            <h2 style={styles.country}>
+              {items[index].title}
+            </h2>
+          </div>
         </div>
-      </div>
+      </Link>
 
       <button onClick={nextSlide} style={styles.button}>▶</button>
     </div>
