@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Carousel from "./componentes/Carousel.jsx";
 import { Navbar } from './componentes/Navbar.jsx';
+import { Link, useLoaderData } from "react-router-dom"
 
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
     {
       title: "Uruguai",
       // image: "https://c.pxhere.com/photos/32/bb/uruguay_architecture_political_cologne_city-867803.jpg!d"
-      image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Facultad_de_Medicina%2C_Montevideo_25.jpg"
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/71/Facultad_de_Medicina%2C_Montevideo_25.jpg"
     },
     {
       title: "Venezuela",
@@ -48,6 +49,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <Carousel items={itensCarousel} autoPlay interval={4000}/>
+      <Link to={`/mapa`}><button value="Detalhes">Mapa</button></Link>
     </>
   )
 }
