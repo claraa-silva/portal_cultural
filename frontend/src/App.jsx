@@ -57,7 +57,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <Carousel items={itensCarousel} autoPlay interval={4000}/>
-      <Link to={`/mapa`}><button value="Detalhes">Mapa</button></Link>
+      <Link to="/mapa" className="botao-mapa">Mapa</Link>
     </>
   )
 }

@@ -26,7 +26,7 @@ const Carousel = ({ items, autoPlay = true, interval = 3000 }) => {
 
   return (
     <div style={styles.carousel}>
-      <button onClick={prevSlide} style={styles.button}>◀</button>
+      <button onClick={prevSlide} style={styles.button}>n</button>
 
       <Link
         to={items[index].link}
@@ -62,7 +62,7 @@ const Carousel = ({ items, autoPlay = true, interval = 3000 }) => {
         </div>
       </Link>
 
-      <button onClick={nextSlide} style={styles.button}>▶</button>
+      <button onClick={nextSlide} style={styles.button}>m</button>
     </div>
   );
 };
