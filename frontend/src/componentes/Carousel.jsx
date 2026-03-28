@@ -29,7 +29,7 @@ const Carousel = ({ items, autoPlay = true, interval = 3000 }) => {
       <button onClick={prevSlide} style={styles.button}>n</button>
 
       <Link
-        to={items[index].link}
+        to={`/detalhes/${items[index].codigo}`}
         style={{ textDecoration: "none" }}
       >
         <div

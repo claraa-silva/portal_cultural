@@ -16,7 +16,7 @@ app.use("/paises", require("./routes/paises"))
 app.get("/universidades/:idpais", async (req,res) => {
     try {
         const idpais = req.params.idpais
-        const resultado = await pool.execute(`select * from universidades where id_pais = ${idpais}`)
+        const resultado = await pool.execute("SELECT * FROM universidades WHERE id_pais = ?", [idpais]);
         console.log(resultado)
         res.status(200).json(resultado[0])
     } catch (error) {
