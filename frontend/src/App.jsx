@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import './App.css';
 import Carousel from "./componentes/Carousel.jsx";
-import { Navbar } from './componentes/Navbar.jsx';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Link, useLoaderData } from "react-router-dom";
 import DetalhesPais from "./telas/DetalhesPais.jsx";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./componentes/Navbar";
+import Destinos from "./telas/Destinos";
+import Experiencias from "./telas/Experiencias";
+import Dicas from "./telas/Dicas";
 
 
 function App() {
@@ -54,11 +58,15 @@ function App() {
     },
   ];
 
-  return (
+  return(
     <>
-      <Navbar></Navbar>
-      <Carousel items={itensCarousel} autoPlay interval={4000}/>
-      <Link to="/mapa" className="botao-mapa">Mapa</Link>
+      <Navbar />
+
+      <Routes>
+        <Route path="/destinos" element={<Destinos />} />
+        <Route path="/experiencias" element={<Experiencias />} />
+        <Route path="/dicas" element={<Dicas />} />
+      </Routes>
     </>
   )
 }

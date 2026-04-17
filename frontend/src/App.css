@@ -1,3 +1,31 @@
 .botao-mapa{
     text-align: center;
 }
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+  
+  .links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .menu-toggle {
+    display: none;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+      flex-direction: column;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  }
