@@ -1,16 +1,21 @@
 import { useState } from 'react';
-import './App.css';
-import Carousel2 from "./componentes/Carousel2.jsx";
+import './css/App.css';
+//import Carousel2 from "../componentes/Carousel2.jsx";
 import { Link, useLoaderData } from "react-router-dom";
-import DetalhesPais from "./telas/DetalhesPais.jsx";
-
+//import DetalhesPais from "./DetalhesPais.jsx";
+import EmblaCarousel from './componentes/EmblaCarousel'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./componentes/Navbar";
-import Destinos from "./telas/Destinos";
-import Experiencias from "./telas/Experiencias";
-import Dicas from "./telas/Dicas.jsx";
+import Navbar from "./componentes/Navbar.jsx";
+//import Destinos from "./Destinos.jsx";
+//import Experiencias from "./Experiencias.jsx";
+//import Dicas from "./Dicas.jsx";
 import Mapa from './telas/Mapa.jsx';
+import './css/embla.css'
 
+const OPTIONS = {
+  dragFree: true,
+  loop: true
+}
 
 function App() {
   const [count, setCount] = useState(0)
@@ -62,7 +67,10 @@ function App() {
   return(
     <>
       <p>nossa plataforma WEB ta demais</p>
-      <Carousel2 itens={itensCarousel} />
+      <EmblaCarousel
+        slides={itensCarousel}
+        options={OPTIONS}
+      />
       <Mapa />
     </>
   )
