@@ -5,7 +5,8 @@ import './index.css'
 import App from './App.jsx'
 import Mapa from "./telas/Mapa.jsx"
 import DetalhesPais from './telas/DetalhesPais.jsx'
-import Navbar from './Navbar.jsx'
+import Navbar from './componentes/Navbar.jsx'
+import Experiencias from './telas/Experiencias.jsx'
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/detalhes/:idPais",
         element: <DetalhesPais />
+      },
+      {
+        path: "/experiencias/:idpais",
+        element: <Experiencias />
       }
     ]
   }

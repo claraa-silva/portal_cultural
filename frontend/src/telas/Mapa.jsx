@@ -13,7 +13,7 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// 📍 Lista de universidades com coordenadas aproximadas
+// sLista de universidades com coordenadas aproximadas
 const universidades = [
   // Argentina
   { nome: "Universidad de Buenos Aires", coords: [-34.60, -58.38] }, // Buenos Aires :contentReference[oaicite:0]{index=0}
@@ -60,7 +60,16 @@ function Mapa() {
       <MapContainer
         center={[-15, -60]} // Centro da América do Sul
         zoom={4}
-        style={{ height: "100%", width: "100%" }}
+        style={{ height: "50%", width: "50%" }}
+
+        minZoom={3}
+        maxZoom={8}
+
+        maxBounds={[
+          [-90, -180], // sudoeste do planeta
+          [90, 180]    // nordeste do planeta
+        ]}
+        maxBoundsViscosity={1.0}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
