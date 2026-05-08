@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import './css/App.css';
-//import Carousel2 from "../componentes/Carousel2.jsx";
-import { Link, useLoaderData } from "react-router-dom";
-//import DetalhesPais from "./DetalhesPais.jsx";
+import imagemFachada from './imagens/20588646.jpg'
 import EmblaCarousel from './componentes/EmblaCarousel'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./componentes/Navbar.jsx";
-//import Destinos from "./Destinos.jsx";
-//import Experiencias from "./Experiencias.jsx";
-//import Dicas from "./Dicas.jsx";
 import Mapa from './telas/Mapa.jsx';
 import './css/embla.css'
 
@@ -66,6 +59,14 @@ function App() {
 
   return(
     <>
+      <div className="fachada">
+        <img src={imagemFachada} alt="Fachada" />
+      </div>
+      <h2 className='texto'><b>This is a place where travelers can chart their own course, where
+        stories unfold in unexpected places and discovery happens one
+        connection at a time. Whatever type of travel you seek, the USA is
+        ready to help you plan your next beautiful journey.</b>
+      </h2>
       <p>nossa plataforma WEB ta demais</p>
       <EmblaCarousel
         slides={itensCarousel}

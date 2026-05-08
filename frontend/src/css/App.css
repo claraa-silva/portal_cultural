@@ -29,3 +29,12 @@
       display: block;
     }
   }
+
+.texto{
+  margin-top: 3rem;
+  font-size: 50px;
+}
+
+.fachada{
+  margin-top: 90px;
+}

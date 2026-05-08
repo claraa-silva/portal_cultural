@@ -7,7 +7,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-10 py-4">
 
         {/* Logo */}
-        <h1 className="text-lg font-bold">Visit USA</h1>
+        <h1 className="text-lg font-bold">Visit Portal Cultural</h1>
 
         {/* Menu central */}
         <nav className="absolute left-1/2 transform -translate-x-1/2">
