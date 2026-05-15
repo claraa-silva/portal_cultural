@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import './css/App.css';
-import imagemFachada from './imagens/20588646.jpg'
 import EmblaCarousel from './componentes/EmblaCarousel'
 import Mapa from './telas/Mapa.jsx';
 import './css/embla.css'
+import imagemBrasil from './imagens/brasil.webp'
 
 const OPTIONS = {
   dragFree: true,
@@ -60,18 +60,19 @@ function App() {
   return(
     <>
       <div className="fachada">
-        <img src={imagemFachada} alt="Fachada" />
+        <img src={imagemBrasil} alt="Fachada" />
       </div>
-      <h2 className='texto'><b>This is a place where travelers can chart their own course, where
-        stories unfold in unexpected places and discovery happens one
-        connection at a time. Whatever type of travel you seek, the USA is
-        ready to help you plan your next beautiful journey.</b>
+      <h2 className='texto'><b>Um lugar onde estudantes brasileiros podem explorar novas culturas,
+          fortalecer conexões e viver experiências inesquecíveis em países
+          hispanofalantes. Cada viagem é uma
+          oportunidade de aprender, descobrir novos caminhos e ampliar horizontes
+          através da língua, da cultura e das amizades.</b>
       </h2>
-      <p>nossa plataforma WEB ta demais</p>
       <EmblaCarousel
         slides={itensCarousel}
         options={OPTIONS}
       />
+      <h2 className='texto2'>Your Dream Trip Starts Now</h2>
       <Mapa />
     </>
   )

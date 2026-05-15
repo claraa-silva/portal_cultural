@@ -56,11 +56,11 @@ const universidades = [
 
 function Mapa() {
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
+    <div style={{ height: "100vh", width: "100vw", zIndex: "49", position: "relative" }}>
       <MapContainer
         center={[-15, -60]} // Centro da América do Sul
         zoom={4}
-        style={{ height: "50%", width: "50%" }}
+        style={{ height: "50%", width: "50%", marginTop: "5rem", marginLeft: "440px" }}
 
         minZoom={3}
         maxZoom={8}
