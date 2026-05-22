@@ -6,13 +6,43 @@ import './css/embla.css'
 import imagemBrasil from './imagens/brasil.webp'
 import cataratas from './imagens/cataratas.jpg'
 
-const OPTIONS = {
-  dragFree: true,
-  loop: true
-}
 
 function App() {
-  const [paises, setPaises] = useState([]);
+  const OPTIONS = {
+    dragFree: true,
+    loop: true
+  }
+  
+  const [paises, setPaises] = useState([
+    {
+      id: "AR",
+      imagem_url: "https://oficinadeinverno.com.br/cdn/shop/articles/oficina-de-inverno-curiosidades-sobre-a-argentina-capa.jpg?v=1659468750"
+    },
+    {
+      id: "BO",
+      imagem_url: ""
+    },
+    {
+      id: "CO",
+      imagem_url: ""
+    },
+    {
+      id: "PE",
+      imagem_url: ""
+    },
+    {
+      id: "PY",
+      imagem_url: ""
+    },
+    {
+      id: "UY",
+      imagem_url: ""
+    },
+    {
+      id: "VE",
+      imagem_url: ""
+    },
+  ]);
 
   useEffect(() => {
     fetch("http://localhost:8000/paises")
