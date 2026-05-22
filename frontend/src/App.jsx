@@ -4,6 +4,7 @@ import EmblaCarousel from './componentes/EmblaCarousel'
 import Mapa from './telas/Mapa.jsx';
 import './css/embla.css'
 import imagemBrasil from './imagens/brasil.webp'
+import cataratas from './imagens/cataratas.jpg'
 
 const OPTIONS = {
   dragFree: true,
@@ -60,7 +61,7 @@ function App() {
   return(
     <>
       <div className="fachada">
-        <img src={imagemBrasil} alt="Fachada" />
+        <img src={cataratas} alt="Fachada" />
       </div>
       <h2 className='texto'><b>Um lugar onde estudantes brasileiros podem explorar novas culturas,
           fortalecer conexões e viver experiências inesquecíveis em países
