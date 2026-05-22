@@ -7,6 +7,7 @@ import Mapa from "./telas/Mapa.jsx"
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'
+import Pais from './telas/Pais.jsx'
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />
+      },
+      {
+        path: "/paises/:id",
+        element: <Pais/>
       },
       {
         path: "/mapa",

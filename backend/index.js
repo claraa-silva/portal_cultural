@@ -11,7 +11,32 @@ app.use(bodyparser.json());
 //rotas:
 // /paises, /universidades, /planejamento, /bolsas, /experiencias, /perguntas, /guias
 
-app.use("/paises", require("./routes/paises"))
+//GET /paises -> Retorna dados sobre os paises
+app.get("/paises", async (req,res) => {
+    try{
+        const resultado = await pool.execute("SELECT * FROM pais");
+        console.log(resultado);
+        res.status(200).json(resultado[0]);
+    }catch(err){
+        res.status(500).send(err)
+    }
+})
+app.get("/paises/:id", async (req,res) => {
+    try{
+
+        const resultado = await pool.execute(
+            "SELECT * FROM pais WHERE id=?",
+            [req.params.id]
+        );
+
+        res.status(200).json(resultado[0][0]);
+
+    }catch(err){
+        console.log(err);
+        res.status(500).send(err);
+    }
+})
+
 
 app.get("/universidades/:idpais", async (req,res) => {
     try {
