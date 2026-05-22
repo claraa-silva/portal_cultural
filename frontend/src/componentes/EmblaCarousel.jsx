@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react'
+import { Link } from "react-router-dom";
 import useEmblaCarousel from 'embla-carousel-react'
 
 import {
@@ -84,14 +85,19 @@ const EmblaCarousel = (props) => {
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((slide, index) => (
-            <div className="embla__slide" key={slide.codigo}>
+            <div className="embla__slide" key={slide.id}>
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
-                  <img
-                    className="embla__slide__img embla__parallax__img"
-                    src={`https://picsum.photos/600/350?v=${index}`}
-                    alt="slide"
-                  />
+                  <Link
+                    to={`/paises/${slide.id}`} 
+                    key={slide.id}
+                    className="embla__link"
+                  >
+                    <img
+                      className="embla__slide__img embla__parallax__img"
+                      src={slide.imagem_url}
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
