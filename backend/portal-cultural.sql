@@ -131,3 +131,5 @@ INSERT INTO universidades (id_pais, nome) VALUES
 select * from pais; 
 select * from experiencias;
 select * from universidades;
+
+
