@@ -49,9 +49,41 @@ app.get("/universidades/:idpais", async (req,res) => {
     }
 })
 
-app.get("/bolsas", (req,res) => {
-    res.send("Lista de bolsas disponíveis para universidades de cada país");
+app.get("/bolsas", async (req,res) => {
+    try{
+        const resultado = await pool.execute("SELECT * FROM bolsas");
+        console.log(resultado);
+        res.status(200).json(resultado[0]);
+    }catch(err){
+        res.status(500).send(err)
+    }
 })
+
+app.get("/bolsas/:id", async (req,res) => {
+    try{
+        const resultado = await pool.execute("SELECT * FROM bolsas WHERE id_pais = ?");
+        console.log(resultado);
+        res.status(200).json(resultado[0]);
+    }catch(err){
+        res.status(500).send(err)
+    }
+})
+app.get("/bolsas/:id", async (req,res) => {
+    try{
+
+        const resultado = await pool.execute(
+            "SELECT * FROM bolsas WHERE id=?",
+            [req.params.id]
+        );
+
+        res.status(200).json(resultado[0][0]);
+
+    }catch(err){
+        console.log(err);
+        res.status(500).send(err);
+    }
+})
+
 
 app.get("/perguntas", (req,res) => {
     res.send("Perguntas como: precisa de visto? precisa falar espanhol? posso trabalhar? como encontrar moradia?")
