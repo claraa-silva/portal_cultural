@@ -41,7 +41,7 @@ function App() {
     {
       id: "VE",
       imagem_url: "https://upload.wikimedia.org/wikipedia/commons/0/06/Miraflores_Palace.png"
-    },
+    }
   ]);
 
   useEffect(() => {
