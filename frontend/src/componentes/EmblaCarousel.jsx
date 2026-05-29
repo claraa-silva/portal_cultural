@@ -13,7 +13,9 @@ import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 const TWEEN_FACTOR_BASE = 0.2
 
 const EmblaCarousel = (props) => {
-  const { slides, options } = props
+  const { slides = [], options } = props
+
+  const safeSlides = Array.isArray(slides) ? slides : []
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -84,7 +86,7 @@ const EmblaCarousel = (props) => {
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((slide, index) => (
+          {safeSlides.map((slide, index) => (
             <div className="embla__slide" key={slide.id}>
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
@@ -98,6 +100,9 @@ const EmblaCarousel = (props) => {
                       src={slide.imagem_url}
                     />
                   </Link>
+                  <div className="embla__content">
+                    <h3>{slide.nome}</h3>
+                  </div>
                 </div>
               </div>
             </div>
