@@ -20,27 +20,27 @@ function App() {
     },
     {
       id: "BO",
-      imagem_url: ""
+      imagem_url: "https://bushop.com/wp-content/uploads/sites/6/boliviahop-palace.jpg"
     },
     {
       id: "CO",
-      imagem_url: ""
+      imagem_url: "https://media-cdn.tripadvisor.com/media/photo-s/08/fa/22/da/palacio-de-narino.jpg"
     },
     {
       id: "PE",
-      imagem_url: ""
+      imagem_url: "https://www.machupicchuterra.com/wp-content/uploads/lima-palacio-gobierno-peru-full-1.jpg"
     },
     {
       id: "PY",
-      imagem_url: ""
+      imagem_url: "https://www.cidadeecultura.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2019/06/Assuncao-Palacio-Lopez-Presidencial-ft-Marco-Briones-web-1024x683.jpg.webp"
     },
     {
       id: "UY",
-      imagem_url: ""
+      imagem_url: "https://img.magnific.com/fotos-premium/palacio-legislativo-do-uruguai-um-edificio-monumental-em-montevideu_261932-18316.jpg"
     },
     {
       id: "VE",
-      imagem_url: ""
+      imagem_url: "https://upload.wikimedia.org/wikipedia/commons/0/06/Miraflores_Palace.png"
     },
   ]);
 
