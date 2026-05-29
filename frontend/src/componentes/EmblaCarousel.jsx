@@ -82,6 +82,7 @@ const EmblaCarousel = (props) => {
       .on('select', tweenParallax)
   }, [emblaApi, setTweenNodes, setTweenFactor, tweenParallax])
 
+  console.log(slides)
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
