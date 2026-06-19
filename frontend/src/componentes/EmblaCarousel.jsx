@@ -82,13 +82,14 @@ const EmblaCarousel = (props) => {
       .on('select', tweenParallax)
   }, [emblaApi, setTweenNodes, setTweenFactor, tweenParallax])
 
-  console.log(slides)
+  // console.log(slides)
+  console.log(safeSlides[0]);
   return (
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {safeSlides.map((slide, index) => (
-            <div className="embla__slide" key={slide.id}>
+            <div className="embla__slide" key={`${slide.id}-${index}`}>
               <div className="embla__parallax">
                 <div className="embla__parallax__layer">
                   <Link
@@ -98,7 +99,8 @@ const EmblaCarousel = (props) => {
                   >
                     <img
                       className="embla__slide__img embla__parallax__img"
-                      src={slide.imagem_url}
+                      src={`../src/imagens/paises/${slide.image_url}`} 
+                      alt="Descrição da imagem"
                     />
                   </Link>
                   <div className="embla__content">
