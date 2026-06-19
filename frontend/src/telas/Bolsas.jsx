@@ -30,7 +30,7 @@ function Bolsas() {
                             <div className="card-image">
                                 <figure className="image is-4by3">
                                     <img
-                                        src={pais.img_bolsa}
+                                        src={pais.imagem_url}
                                         alt={pais.nome}
                                     />
                                 </figure>

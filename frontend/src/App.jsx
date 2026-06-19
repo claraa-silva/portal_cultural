@@ -25,6 +25,7 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data)
+        console.log(paises)
         setPaises(data)
       })
       .catch(err => console.log(err))
