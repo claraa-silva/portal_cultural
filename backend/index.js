@@ -49,9 +49,9 @@ app.get("/universidades/:idpais", async (req,res) => {
     }
 })
 
-app.get("/bolsas", async (req,res) => {
+app.get("/intercambios", async (req,res) => {
     try{
-        const resultado = await pool.execute("SELECT * FROM bolsas");
+        const resultado = await pool.execute("SELECT * FROM intercambios");
         console.log(resultado);
         res.status(200).json(resultado[0]);
     }catch(err){
@@ -59,30 +59,19 @@ app.get("/bolsas", async (req,res) => {
     }
 })
 
-app.get("/bolsas/:id", async (req,res) => {
-    try{
-        const resultado = await pool.execute("SELECT * FROM bolsas WHERE id_pais = ?");
-        console.log(resultado);
-        res.status(200).json(resultado[0]);
-    }catch(err){
-        res.status(500).send(err)
-    }
-})
-app.get("/bolsas/:id", async (req,res) => {
-    try{
-
-        const resultado = await pool.execute(
-            "SELECT * FROM bolsas WHERE id=?",
+app.get("/intercambios/:id", async (req, res) => {
+    try {
+        const [rows] = await pool.execute(
+            "SELECT * FROM intercambios WHERE pais_id = ?",
             [req.params.id]
         );
 
-        res.status(200).json(resultado[0][0]);
-
-    }catch(err){
-        console.log(err);
-        res.status(500).send(err);
+        res.status(200).json(rows); // 👈 SEMPRE ARRAY
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
+});
 
 
 app.get("/perguntas", (req,res) => {
