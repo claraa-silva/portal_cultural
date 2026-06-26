@@ -130,7 +130,7 @@ body {
 
 .section-mapa{
   background-color: #F5F1EC;
-  padding: 8rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
 
 }
@@ -138,7 +138,7 @@ body {
 .section-mapa h2{
   font-size: 3rem;
   color: #587A5A;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-family: "Playfair Display", serif;
 }
 
@@ -217,7 +217,7 @@ body {
 
 .section-eventos h2{
   font-size: 3rem;
-  color: #a0dd13;
+  color: #009440;
   margin-bottom: 2rem;
   font-family: "Playfair Display", serif;
 }

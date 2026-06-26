@@ -6,11 +6,13 @@ import './css/index.css'
 
 import App from './App.jsx'
 import Mapa from './telas/Mapa.jsx'
+import Dicas from './telas/Dicas.jsx'
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'
 import Bolsas from './telas/Bolsas.jsx'
 import Pais from './telas/Pais.jsx'
+
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
@@ -53,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "/experiencias/:idpais",
         element: <Experiencias />
+      },
+      {
+        path: "/dicas",
+        element: <Dicas />
       }
     ]
   }

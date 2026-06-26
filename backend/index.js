@@ -84,6 +84,21 @@ app.get("/bolsas/:id", async (req,res) => {
     }
 })
 
+app.get("/dicas/:id", async(req, res) =>{
+    try{
+        const resultado = await pool.execute(
+            "SELECT * FROM dicas WHERE id=?",
+            [req.params.id]
+        );
+
+        res.status(200).json(resultado[0][0]);
+
+    }catch(err){
+        console.log(err);
+        res.status(500).sent(err);
+    }
+})
+
 
 app.get("/perguntas", (req,res) => {
     res.send("Perguntas como: precisa de visto? precisa falar espanhol? posso trabalhar? como encontrar moradia?")

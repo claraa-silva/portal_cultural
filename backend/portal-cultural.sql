@@ -71,6 +71,15 @@ create table experiencias(
     constraint fk_id_pais_exp foreign key (id_pais) references pais(id)
 );
 
+create table dicas(
+	id int auto_increment,
+    id_pais char(2) not null,
+    texto text,
+    primary key(id),
+    
+    constraint fk_id_pais_dicas foreign key (id_pais) references pais(id)
+);
+
 create table universidades(
 	id INT AUTO_INCREMENT,
     id_pais char(2) not null,
@@ -128,7 +137,30 @@ INSERT INTO universidades (id_pais, nome) VALUES
 ('VE', 'Universidad de Los Andes'),
 ('VE', 'Universidad Simón Bolívar');
 
+INSERT INTO dicas (id_pais, texto) VALUES
+('AR', 'Experimente cumprimentar as pessoas com "Hola" e "Gracias". Os argentinos valorizam a cordialidade.'),
+('AR', 'Leve pesos argentinos ou um cartão internacional para facilitar os pagamentos.'),
+
+('BO', 'Em regiões de grande altitude, como La Paz, beba bastante água e evite esforços físicos no primeiro dia.'),
+('BO', 'Tenha dinheiro em espécie, pois muitos pequenos estabelecimentos não aceitam cartões.'),
+
+('PY', 'Em cidades de fronteira, compare os preços antes de comprar, pois eles podem variar bastante.'),
+('PY', 'Leve documentos de identificação sempre com você durante a viagem.'),
+
+('UY', 'Os uruguaios costumam ser muito educados; um simples "Buenos días" faz diferença.'),
+('UY', 'Verifique se seu cartão internacional está habilitado para compras no exterior.'),
+
+('PE', 'Ao visitar cidades de altitude, faça refeições leves nos primeiros dias.'),
+('PE', 'Aprender expressões simples em espanhol facilita bastante a comunicação.'),
+
+('CO', 'Evite exibir objetos de valor em locais muito movimentados.'),
+('CO', 'Use aplicativos de transporte conhecidos quando possível.'),
+
+('VE', 'Verifique as condições de entrada no país e leve todos os documentos exigidos.'),
+('VE', 'Tenha um plano para troca de moeda antes da viagem.');
+
 select * from pais; 
+select * from dicas;
 select * from experiencias;
 select * from universidades;
 
