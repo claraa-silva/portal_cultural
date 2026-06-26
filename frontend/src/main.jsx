@@ -9,7 +9,8 @@ import Mapa from "./telas/Mapa.jsx"
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'
-import Bolsas from './telas/Bolsas.jsx'
+import Intercambios from './telas/Intercambios.jsx'
+import InterDetalhes from './telas/InterDetalhes.jsx'
 import Pais from './telas/Pais.jsx'
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
         element: <App />
       },
       {
-        path: "/bolsas",
-        element: <Bolsas/>
+        path: "/intercambios",
+        element: <Intercambios/>
+      },
+      {
+        path: "/intercambios/:id",
+        element: <InterDetalhes/>
       },
       {
         path: "/paises/:id",
