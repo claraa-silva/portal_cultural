@@ -111,8 +111,12 @@ app.post("/experiencias/:idpais", async (req,res) => {
     }
 })
 
-app.get("/guia", (req,res) => {
+app.get("/guia", async (req,res) => {
     res.send("Guia para estudantes")
+})
+
+app.get("/destinos/:iddestino", async (req, res) => {
+    res.send("destinos incriveis!")
 })
 
 function getDataFormatada(){

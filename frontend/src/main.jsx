@@ -11,6 +11,7 @@ import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'
 import Bolsas from './telas/Bolsas.jsx'
 import Pais from './telas/Pais.jsx'
+import Destinos from './telas/Destinos.jsx'
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "/experiencias/:idpais",
         element: <Experiencias />
+      },
+      {
+        path: "/destinos/:iddestino",
+        element: <Destinos />
       }
     ]
   }

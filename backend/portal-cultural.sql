@@ -80,6 +80,13 @@ create table universidades(
     constraint fk_id_pais_unis foreign key (id_pais) references pais(id)
 );
 
+create table destinos(
+	id int auto_increment primary key,
+    id_pais char(2) not null,
+    nome text,
+    constraint fk_id_pais_destinos foreign key (id_pais) references pais(id)
+);
+
 # inserts - país
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.", "uruguai.jpg");
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.", "argentina.jpg");
@@ -127,6 +134,10 @@ INSERT INTO universidades (id_pais, nome) VALUES
 ('VE', 'Universidad Central de Venezuela'),
 ('VE', 'Universidad de Los Andes'),
 ('VE', 'Universidad Simón Bolívar');
+
+INSERT INTO destinos (id_pais, nome) VALUES
+('AR', 'Glaciar Perito Moreno'),
+('PE', 'Machu Picchu');
 
 select * from pais; 
 select * from experiencias;
