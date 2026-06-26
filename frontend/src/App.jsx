@@ -71,24 +71,17 @@ function App() {
               <div className="card-image">
                 <figure className="image is-4by3">
                   <img
-                    src={cataratas}
+                    src="https://www.voltologo.net/wp-content/uploads/2015/04/geleiras-america-latina.jpg"
                     alt="Placeholder image"
                   />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-48x48">
-                      <img
-                        src="https://bulma.io/assets/images/placeholders/96x96.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
+                  <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">John Smith</p>
-                    <p className="subtitle is-6">@johnsmith</p>
+                    <p className="title is-4">Glaciar Perito Moreno</p>
+                    <p className="subtitle is-6">Argentina</p>
                   </div>
                 </div>
 
@@ -106,24 +99,17 @@ function App() {
               <div className="card-image">
                 <figure className="image is-4by3">
                   <img
-                    src={cataratas}
+                    src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEMJ0SmNaHWj5ObfRMPg-h0qDXWFMCxFvc52a1Mj8_sBlkUNeOwWtE7TaHPhvtR3INQ5_GRSa21Q_0c3GSV6tfP4A0-OYupnh-TTSRG_XuioxvwtIxD7NDkc4lHtyJGUjheVisyFg=w540-h312-n-k-no"
                     alt="Placeholder image"
                   />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-48x48">
-                      <img
-                        src="https://bulma.io/assets/images/placeholders/96x96.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
+                  <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">John Smith</p>
-                    <p className="subtitle is-6">@johnsmith</p>
+                    <p className="title is-4">Laguna Quilotoa</p>
+                    <p className="subtitle is-6">Equador</p>
                   </div>
                 </div>
 
@@ -141,24 +127,17 @@ function App() {
               <div className="card-image">
                 <figure className="image is-4by3">
                   <img
-                    src={cataratas}
+                    src="https://www.voltologo.net/wp-content/uploads/2015/04/Machu-Picchu-1.jpg"
                     alt="Placeholder image"
                   />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-48x48">
-                      <img
-                        src="https://bulma.io/assets/images/placeholders/96x96.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
+                  <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">John Smith</p>
-                    <p className="subtitle is-6">@johnsmith</p>
+                    <p className="title is-4">Machu Picchu</p>
+                    <p className="subtitle is-6">Peru</p>
                   </div>
                 </div>
 
@@ -176,24 +155,17 @@ function App() {
               <div className="card-image">
                 <figure className="image is-4by3">
                   <img
-                    src={cataratas}
+                    src="https://www.voltologo.net/wp-content/uploads/2015/04/paisagens-america-latina.jpg"
                     alt="Placeholder image"
                   />
                 </figure>
               </div>
               <div className="card-content">
                 <div className="media">
-                  <div className="media-left">
-                    <figure className="image is-48x48">
-                      <img
-                        src="https://bulma.io/assets/images/placeholders/96x96.png"
-                        alt="Placeholder image"
-                      />
-                    </figure>
-                  </div>
+                  <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">John Smith</p>
-                    <p className="subtitle is-6">@johnsmith</p>
+                    <p className="title is-4">Deserto do Atacama </p>
+                    <p className="subtitle is-6">Chile</p>
                   </div>
                 </div>
 

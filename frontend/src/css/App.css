@@ -152,14 +152,20 @@ body {
 }
 
 .section-destino{
-  background-color: #fad96f;
+  background-color: #009440;
   padding: 8rem 2rem;
   text-align: center;
 }
 
-.section-destino h2{
+.section-destino p{
   font-size: 3rem;
   color: #F5F1EC;
+  margin-bottom: 1rem;
+}
+
+.section-destino h2{
+  font-size: 2rem;
+  color: aliceblue;
   margin-bottom: 2rem;
   font-family: "Playfair Display", serif;
 }
@@ -197,8 +203,8 @@ body {
 }
 
 .destino-card:hover{
-  background-color: #0d2f6e;
-  color: white;
+  background-color: #FFCB00;
+  color: rgb(0, 0, 0);
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 

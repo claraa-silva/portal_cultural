@@ -5,7 +5,7 @@ import 'bulma/css/bulma.min.css'
 import './css/index.css'
 
 import App from './App.jsx'
-import Mapa from "./telas/Mapa.jsx"
+import Mapa from './telas/Mapa.jsx'
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'

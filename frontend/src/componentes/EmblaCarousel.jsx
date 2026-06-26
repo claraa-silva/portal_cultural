@@ -99,7 +99,7 @@ const EmblaCarousel = (props) => {
                   >
                     <img
                       className="embla__slide__img embla__parallax__img"
-                      src={`../src/imagens/paises/${slide.image_url}`} 
+                      src={`/imagens/paises/${slide.url_imagem}`} 
                       alt="Descrição da imagem"
                     />
                   </Link>
