@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import EmblaCarousel from './componentes/EmblaCarousel'
 import cataratas from './imagens/cataratas.jpg'
 import Mapa from './telas/Mapa.jsx';
@@ -69,12 +70,14 @@ function App() {
           <div className="cards-container">
             <div className="destino-card">
               <div className="card-image">
-                <figure className="image is-4by3">
-                  <img
-                    src="https://www.voltologo.net/wp-content/uploads/2015/04/geleiras-america-latina.jpg"
-                    alt="Placeholder image"
-                  />
-                </figure>
+                <Link to="/destinos/:iddestino">
+                  <figure className="image is-4by3">
+                    <img
+                      src="/imagens/destinos/glaciar-perito-moreno.jpg"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </Link>
               </div>
               <div className="card-content">
                 <div className="media">
@@ -97,19 +100,21 @@ function App() {
 
             <div className="destino-card">
               <div className="card-image">
-                <figure className="image is-4by3">
-                  <img
-                    src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEMJ0SmNaHWj5ObfRMPg-h0qDXWFMCxFvc52a1Mj8_sBlkUNeOwWtE7TaHPhvtR3INQ5_GRSa21Q_0c3GSV6tfP4A0-OYupnh-TTSRG_XuioxvwtIxD7NDkc4lHtyJGUjheVisyFg=w540-h312-n-k-no"
-                    alt="Placeholder image"
-                  />
-                </figure>
+                <Link to="/destinos/:iddestino">
+                  <figure className="image is-4by3">
+                    <img
+                      src="/imagens/destinos/cartagena.jpg"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </Link>
               </div>
               <div className="card-content">
                 <div className="media">
                   <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">Laguna Quilotoa</p>
-                    <p className="subtitle is-6">Equador</p>
+                    <p className="title is-4">Cartagena das Índias</p>
+                    <p className="subtitle is-6">Colombia</p>
                   </div>
                 </div>
 
@@ -125,12 +130,14 @@ function App() {
 
             <div className="destino-card">
               <div className="card-image">
-                <figure className="image is-4by3">
-                  <img
-                    src="https://www.voltologo.net/wp-content/uploads/2015/04/Machu-Picchu-1.jpg"
-                    alt="Placeholder image"
-                  />
-                </figure>
+                <Link to="/destinos/:iddestino">
+                  <figure className="image is-4by3">
+                    <img
+                      src="/imagens/destinos/machu-picchu.jpg"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </Link>
               </div>
               <div className="card-content">
                 <div className="media">
@@ -153,19 +160,21 @@ function App() {
 
             <div className="destino-card">
               <div className="card-image">
-                <figure className="image is-4by3">
-                  <img
-                    src="https://www.voltologo.net/wp-content/uploads/2015/04/paisagens-america-latina.jpg"
-                    alt="Placeholder image"
-                  />
-                </figure>
+                <Link to="/destinos/:iddestino">
+                  <figure className="image is-4by3">
+                    <img
+                      src="/imagens/destinos/salar-de-uyuni.jpg"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </Link>
               </div>
               <div className="card-content">
                 <div className="media">
                   <div className="media-left"></div>
                   <div className="media-content">
-                    <p className="title is-4">Deserto do Atacama </p>
-                    <p className="subtitle is-6">Chile</p>
+                    <p className="title is-4">Salar de Uyuni</p>
+                    <p className="subtitle is-6">Bolívia</p>
                   </div>
                 </div>
 

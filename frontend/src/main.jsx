@@ -10,8 +10,10 @@ import Dicas from './telas/Dicas.jsx'
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'
-import Bolsas from './telas/Bolsas.jsx'
+import Intercambios from './telas/Intercambios.jsx'
+import InterDetalhes from './telas/InterDetalhes.jsx'
 import Pais from './telas/Pais.jsx'
+import Destinos from './telas/Destinos.jsx'
 
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
@@ -37,8 +39,12 @@ const router = createBrowserRouter([
         element: <App />
       },
       {
-        path: "/bolsas",
-        element: <Bolsas/>
+        path: "/intercambios",
+        element: <Intercambios/>
+      },
+      {
+        path: "/intercambios/:id",
+        element: <InterDetalhes/>
       },
       {
         path: "/paises/:id",
@@ -57,8 +63,13 @@ const router = createBrowserRouter([
         element: <Experiencias />
       },
       {
+<<<<<<< HEAD
         path: "/dicas",
         element: <Dicas />
+=======
+        path: "/destinos/:iddestino",
+        element: <Destinos />
+>>>>>>> 8812ec0b39ccda6d63895272b70d3104b0e09441
       }
     ]
   }

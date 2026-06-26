@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-function Bolsas() {
+function Intercambios() {
 
     const [paises, setPaises] = useState([])
 
@@ -23,7 +23,7 @@ function Bolsas() {
 
                 <div className="column is-3" key={pais.id}>
 
-                    <Link to={`/bolsas/${pais.id}`}>
+                    <Link to={`/intercambios/${pais.id}`}>
 
                         <div className="card">
 
@@ -54,4 +54,4 @@ function Bolsas() {
     )
 }
 
-export default Bolsas
+export default Intercambios
