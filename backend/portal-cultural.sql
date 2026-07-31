@@ -144,7 +144,6 @@ INSERT INTO universidades (id_pais, nome) VALUES
 ('VE', 'Universidad de Los Andes'),
 ('VE', 'Universidad Simón Bolívar');
 
-<<<<<<< HEAD
 INSERT INTO dicas (id_pais, texto) VALUES
 ('AR', 'Experimente cumprimentar as pessoas com "Hola" e "Gracias". Os argentinos valorizam a cordialidade.'),
 ('AR', 'Leve pesos argentinos ou um cartão internacional para facilitar os pagamentos.'),
@@ -166,11 +165,10 @@ INSERT INTO dicas (id_pais, texto) VALUES
 
 ('VE', 'Verifique as condições de entrada no país e leve todos os documentos exigidos.'),
 ('VE', 'Tenha um plano para troca de moeda antes da viagem.');
-=======
+
 INSERT INTO destinos (id_pais, nome) VALUES
 ('AR', 'Glaciar Perito Moreno'),
 ('PE', 'Machu Picchu');
->>>>>>> 8812ec0b39ccda6d63895272b70d3104b0e09441
 
 select * from pais; 
 select * from dicas;

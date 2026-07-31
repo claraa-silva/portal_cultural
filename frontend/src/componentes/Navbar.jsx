@@ -19,7 +19,7 @@ export default function Navbar() {
             </li>
 
             <li className="relative group">
-              <Link to="/intercambios" className="!text-white font-bold">Intercambios</Link>
+              <Link to="/intercambios" className="!text-white font-bold">Intercâmbios</Link>
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-white transition-all group-hover:w-full"></span>
             </li>
 
