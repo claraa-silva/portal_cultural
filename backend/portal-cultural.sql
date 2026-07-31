@@ -96,6 +96,16 @@ create table destinos(
     constraint fk_id_pais_destinos foreign key (id_pais) references pais(id)
 );
 
+create table eventos(
+	id int auto_increment,
+    nome text,
+    loc text,
+    epoca text,
+    descricao text,
+    
+    primary key(id)
+);
+
 # inserts - país
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.", "uruguai.jpg");
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.", "argentina.jpg");
@@ -169,6 +179,16 @@ INSERT INTO dicas (id_pais, texto) VALUES
 INSERT INTO destinos (id_pais, nome) VALUES
 ('AR', 'Glaciar Perito Moreno'),
 ('PE', 'Machu Picchu');
+
+INSERT INTO eventos (nome, loc, epoca, descricao) VALUES
+('Fiesta de la Vendimia', 'Mendoza, Argentina', 'Entre fevereiro e  março', 'Uma celebração da colheita da uva, com desfiles, danças tradicionais e, claro, degustação dos famosos vinhos argentinos.'),
+('Inti Raymi', 'Cusco - Peru',  'Entre fevereiro e  março', 'Conhecido como o Festival do Sol, é uma homenagem ao deus Inca Inti. A festa inclui desfiles históricos e rituais que transportam os visitantes ao passado.'),
+('Festival Nacional de Folclore',  'Entre fevereiro e  março', 'Cosquín, Argentina', 'Um festival que celebra a música e a dança tradicional argentina, reunindo artistas locais e internacionais.'),
+('Festival del Viento y las Cometas', ' Villa de Leyva',  'Entre fevereiro e  março', 'Celebração colorida com competições de pipas, que transformam o céu em um espetáculo visual.'),
+('Fiesta de la Candelaria', ' Puno, Peru',  'Entre fevereiro e  março', 'Um evento religioso e cultural que mistura tradições indígenas e católicas, com danças e procissões ao redor do Lago Titicaca.'),
+('Carnaval de Oruro', 'Bolívia',  'Entre fevereiro e  março', 'Declarado Patrimônio Imaterial da Humanidade pela UNESCO, o carnaval de Oruro é uma explosão de cores e folclore.');
+
+
 
 select * from pais; 
 select * from dicas;

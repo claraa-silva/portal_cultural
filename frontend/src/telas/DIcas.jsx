@@ -1,64 +1,53 @@
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import { SlArrowDown } from "react-icons/sl";
+import { SlArrowUp } from "react-icons/sl";
+
 
 function Dicas() {
     
-    const [dicas, setDicas] = useState([])
+    const [expressoes, setExpressoes] = useState([])
+
+    const [abertas, setAbertas] = useState({});
 
     useEffect(()=> {
-        fetch("http://localhost:8000/paises")
+        fetch("http://localhost:8000/expressoes")
         .then((res) => res.json())
         .then((dados) => {
-            setDicas(dados)
+            setExpressoes(dados)
         })
     }, [])
 
     return(
         <>
-            {/* <h1>Dicas</h1>
-            <div className="navbar-item has-dropdown is-hoverable"></div>
-            <nav className="navbar" role="navigation" aria-label="dropdown navigation">
-                <div className="navbar-item has-dropdown is-hoverable">
-                    <a className="navbar-link">Docs</a>
+            <section id="aeroporto">
 
-                    <div className="navbar-dropdown">
-                        <a className="navbar-item">Overview</a>
-                        <a className="navbar-item">Elements</a>
-                        <a className="navbar-item">Components</a>
-                        <hr className="navbar-divider"/>
-                        <div className="navbar-item">
-                            Version 1.0.4
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <div className="navbar-item has-dropdown is-active"></div> */}
+            </section>
+            <section id="idioma">
+                <ol>
+                    {expressoes.map((expressao) => (
+                        <li key={expressao.id}>
+                            <strong>{expressao.texto}</strong>
+                            <button className="botao-significado"
+                                onClick={() =>
+                                    setAbertas({
+                                      ...abertas,
+                                      [expressao.id]: !abertas[expressao.id]
+                                    })
+                                  }
+                                >
+                                  {abertas[expressao.id] ? <SlArrowUp /> : <SlArrowDown />}
+                            </button>
+                            {abertas[expressao.id] && (
+                              <p>{expressao.significado}</p>
+                            )}
+                        </li>
+                    ))}
+                </ol>
+            </section>
+            <section id="experiencias">
 
-            <div className="columns is-multiline is-centered p-6">
-
-            {dicas.map((dicas) => (
-
-                <div className="column is-3" key={dicas.id}>
-
-                    <Link to={`/dicas/${dicas.id}`}>
-
-                        <div className="card">
-
-                            <div className="card-content">
-                                <p className="title is-4">
-                                    {dicas.texto}
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </Link>
-
-                </div>
-
-            ))}
-
-            </div>
+            </section>
         </>
     )
 }
