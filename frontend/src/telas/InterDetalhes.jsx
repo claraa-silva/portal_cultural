@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import '../css/inter.css';
 
 function InterDetalhes() {
 
@@ -25,20 +26,19 @@ function InterDetalhes() {
             <section
                 className="hero is-medium"
                 style={{
-                    backgroundImage: `url(/imagens/${pais.url_imagem})`,
+                    backgroundImage: `url(/imagens/paises/${pais.url_imagem})`,
                     backgroundSize:"cover",
                     backgroundPosition:"center"
                 }}
             >
                 <div className="hero-body has-text-white">
 
-                    <h1 className="title has-text-white">
+                    <h1 className="title hero-title">
                         Intercâmbio em {pais.nome}
                     </h1>
 
-                    <p className="subtitle has-text-white">
-                        Descubra universidades,
-                        cursos e bolsas disponíveis.
+                    <p className="subtitle hero-subtitle">
+                        Descubra universidades, cursos e bolsas disponíveis para transformar seu futuro.
                     </p>
 
                 </div>
