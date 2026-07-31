@@ -46,9 +46,12 @@ create table ingredientes(
 
 create table expressoes_idiomaticas(
 	id int not null primary key,
+    id_pais char(2) not null,
     texto text,
     significado text,
-    exemplo text
+    exemplo text,
+    
+    constraint fk_id_pais_expressoes foreign key (id_pais) references pais(id) on delete cascade
 );
 
 create table exemplos(
@@ -91,6 +94,16 @@ create table destinos(
     id_pais char(2) not null,
     nome text,
     constraint fk_id_pais_destinos foreign key (id_pais) references pais(id)
+);
+
+create table eventos(
+	id int auto_increment,
+    nome text,
+    loc text,
+    epoca text,
+    descricao text,
+    
+    primary key(id)
 );
 
 # inserts - país
@@ -167,65 +180,15 @@ INSERT INTO destinos (id_pais, nome) VALUES
 ('AR', 'Glaciar Perito Moreno'),
 ('PE', 'Machu Picchu');
 
-INSERT INTO expressoes_idiomaticas (id, texto, significado) VALUES
-(1, 'Más vale tarde que nunca', 'Antes tarde do que nunca'),
-(2, 'Estar en las nubes', 'Estar distraído, com a cabeça no mundo da lua'),
-(3, 'A lo hecho, pecho', 'O que está feito, está feito; encarar as consequências'),
-(4, 'Meter la pata', 'Cometer uma gafe, pisar na bola'),
-(5, 'Ser pan comido', 'Ser muito fácil'),
-(6, 'No tener pelos en la lengua', 'Falar sem rodeios, ser direto'),
-(7, 'Costar un ojo de la cara', 'Ser muito caro'),
-(8, 'Estar sin blanca', 'Estar sem dinheiro, estar quebrado'),
-(9, 'Dormirse en los laureles', 'Acomodar-se após conquistar algo'),
-(10, 'Dar en el clavo', 'Acertar em cheio'),
-(11, 'Estar hecho polvo', 'Estar muito cansado, exausto'),
-(12, 'Hacerse la vista gorda', 'Fingir que não vê, fazer vista grossa'),
-(13, 'Estar de mala leche', 'Estar de mau humor'),
-(14, 'Llevarse como el perro y el gato', 'Viver brigando, como cão e gato'),
-(15, 'Ser un cero a la izquierda', 'Não ter importância, ser irrelevante'),
-(16, 'No pegar ojo', 'Não conseguir dormir'),
-(17, 'Ser uña y carne', 'Ser muito próximo, inseparável'),
-(18, 'A otro perro con ese hueso', 'Não cair nessa, não acreditar'),
-(19, 'Estar como una cabra', 'Ser meio maluco, excêntrico'),
-(20, 'Ahogarse en un vaso de agua', 'Fazer tempestade em copo d''água'),
-(21, 'Quedarse de piedra', 'Ficar chocado, paralisado de surpresa'),
-(22, 'Tirar la toalla', 'Desistir, jogar a toalha'),
-(23, 'Ponerse las pilas', 'Se esforçar, ficar mais ativo'),
-(24, 'Ser la oveja negra', 'Ser a ovelha negra da família ou grupo'),
-(25, 'No tener dos dedos de frente', 'Ser pouco inteligente, sem juízo'),
-(26, 'Estar con el alma en vilo', 'Estar ansioso, preocupado'),
-(27, 'Estar entre la espada y la pared', 'Estar numa situação difícil, sem saída'),
-(28, 'Hacer borrón y cuenta nueva', 'Deixar o passado para trás, recomeçar'),
-(29, 'Buscarle tres pies al gato', 'Complicar as coisas desnecessariamente'),
-(30, 'Más vale pájaro en mano que ciento volando', 'Melhor um pássaro na mão do que dois voando'),
-(31, 'No tener ni un peso', 'Estar sem dinheiro, quebrado'),
-(32, 'Estar frito', 'Estar em apuros, sem saída'),
-(33, 'Hacerse pato', 'Fingir que não entende, enrolar'),
-(34, 'Ponerse la camiseta', 'Vestir a camisa, se comprometer de verdade'),
-(35, 'Tirar la onda', 'Flertar, paquerar'),
-(36, 'Echar la mano', 'Ajudar alguém'),
-(37, 'Dar palo', 'Criticar fortemente, dar bronca'),
-(38, 'Estar hasta las narices', 'Estar de saco cheio'),
-(39, 'Estar de malas pulgas', 'Estar de mau humor'),
-(40, 'Hacerse bolas', 'Se confundir, se enrolar'),
-(41, 'Estar al tiro', 'Estar atento, esperto'),
-(42, 'Sacar la vuelta', 'Evitar responsabilidades, enrolar'),
-(43, 'Llevar la contra', 'Contrariar alguém'),
-(44, 'Ir al grano', 'Ir direto ao ponto'),
-(45, 'Ser harina de otro costal', 'Ser outro assunto, não ter relação'),
-(46, 'Estar pintado', 'Não ser levado em conta, estar ignorado'),
-(47, 'No dar bola', 'Não dar atenção, ignorar'),
-(48, 'Ser macanudo', 'Ser muito legal, gente boa'),
-(49, 'Hacerse el vivo', 'Fingir esperteza, querer se aproveitar'),
-(50, 'Mandarse una macana', 'Fazer besteira'),
-(51, 'Estar chiflado', 'Ser meio maluco'),
-(52, 'Estar reventado', 'Estar exausto'),
-(53, 'Hacerse la chancha renga', 'Se fazer de desentendido'),
-(54, 'Poner los cuernos', 'Trair o parceiro(a)'),
-(55, 'Estar aguado', 'Estar sem energia, fraco'),
-(56, 'Echar un polvo', 'Ter relação sexual (coloquial)'),
-(57, 'Hablar paja', 'Falar besteira, enrolar'),
-(58, 'Estar chineado', 'Estar mimado, cheio de atenção');
+INSERT INTO eventos (nome, loc, epoca, descricao) VALUES
+('Fiesta de la Vendimia', 'Mendoza, Argentina', 'Entre fevereiro e  março', 'Uma celebração da colheita da uva, com desfiles, danças tradicionais e, claro, degustação dos famosos vinhos argentinos.'),
+('Inti Raymi', 'Cusco - Peru',  'Entre fevereiro e  março', 'Conhecido como o Festival do Sol, é uma homenagem ao deus Inca Inti. A festa inclui desfiles históricos e rituais que transportam os visitantes ao passado.'),
+('Festival Nacional de Folclore',  'Entre fevereiro e  março', 'Cosquín, Argentina', 'Um festival que celebra a música e a dança tradicional argentina, reunindo artistas locais e internacionais.'),
+('Festival del Viento y las Cometas', ' Villa de Leyva',  'Entre fevereiro e  março', 'Celebração colorida com competições de pipas, que transformam o céu em um espetáculo visual.'),
+('Fiesta de la Candelaria', ' Puno, Peru',  'Entre fevereiro e  março', 'Um evento religioso e cultural que mistura tradições indígenas e católicas, com danças e procissões ao redor do Lago Titicaca.'),
+('Carnaval de Oruro', 'Bolívia',  'Entre fevereiro e  março', 'Declarado Patrimônio Imaterial da Humanidade pela UNESCO, o carnaval de Oruro é uma explosão de cores e folclore.');
+
+
 
 select * from pais; 
 select * from dicas;
