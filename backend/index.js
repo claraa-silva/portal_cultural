@@ -73,6 +73,17 @@ app.get("/intercambios/:id", async (req, res) => {
     }
 });
 
+app.get("/expressoes", async(req, res) =>{
+    try {
+        const resultado = await pool.execute("SELECT * FROM expressoes_idiomaticas");
+        console.log(resultado);
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.log(err);
+        res.status(500).sent(err);
+    }
+})
+
 app.get("/dicas/:id", async(req, res) =>{
     try{
         const resultado = await pool.execute(
