@@ -1,110 +1,136 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function InterDetalhes() {
+
     const { id } = useParams();
-    const [inter, setInter] = useState([]);
+
+    const [pais, setPais] = useState({});
+    const [intercambios, setIntercambios] = useState([]);
 
     useEffect(() => {
-        AOS.init({ once: true });
+
+        fetch(`http://localhost:8000/paises/${id}`)
+            .then(res => res.json())
+            .then(setPais);
 
         fetch(`http://localhost:8000/intercambios/${id}`)
             .then(res => res.json())
-            .then(data => {
-                // garante que SEMPRE é array
-                setInter(Array.isArray(data) ? data : []);
-            })
-            .catch(err => console.log(err));
-    }, [id]);
+            .then(setIntercambios);
 
-    if (inter.length === 0) {
-        return (
-            <section className="hero is-white is-fullheight">
-                <div className="hero-body has-text-centered">
-                    <div className="container">
-                        <h1 className="title">Carregando intercâmbios...</h1>
-                    </div>
-                </div>
-            </section>
-        );
-    }
+    }, [id]);
 
     return (
         <>
-            {/* HERO INTRO */}
-            <section className="hero is-white is-fullheight">
-                <div className="hero-body">
-                    <div className="container">
-                        <div className="columns is-vcentered reverse-columns">
+            <section
+                className="hero is-medium"
+                style={{
+                    backgroundImage: `url(/imagens/${pais.url_imagem})`,
+                    backgroundSize:"cover",
+                    backgroundPosition:"center"
+                }}
+            >
+                <div className="hero-body has-text-white">
 
-                            <div className="column is-5" data-aos="fade-down">
-                                <h1 className="title is-1 mb-6">
-                                    Intercâmbios disponíveis
-                                </h1>
+                    <h1 className="title has-text-white">
+                        Intercâmbio em {pais.nome}
+                    </h1>
 
-                                <h2 className="subtitle">
-                                    Explore universidades, programas e oportunidades de estudo no exterior.
-                                </h2>
+                    <p className="subtitle has-text-white">
+                        Descubra universidades,
+                        cursos e bolsas disponíveis.
+                    </p>
 
-                                <div className="buttons">
-                                    <button className="button is-warning">
-                                        Universidades
-                                    </button>
-                                    <button className="button">
-                                        Programas
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            {/* LISTA */}
             <section className="section">
+
                 <div className="container">
-                    <div className="columns is-multiline">
 
-                        {inter.map(item => (
-                            <div className="column is-4" key={item.id} data-aos="fade-up">
+                    <h2 className="title">
+                        Programas disponíveis
+                    </h2>
 
-                                <div className="card" style={{ borderRadius: "12px" }}>
+                    {intercambios.map((item)=>(
 
-                                    <div className="card-content">
-                                        <p className="title is-4">
-                                            {item.universidade}
+                        <div
+                            className="card mb-5"
+                            key={item.id}
+                        >
+
+                            <div className="card-content">
+
+                                <div className="columns">
+
+                                    <div className="column is-9">
+
+                                        <h3 className="title is-4">
+                                            {item.titulo}
+                                        </h3>
+
+                                        <p>
+                                            {item.descricao}
                                         </p>
 
-                                        <p className="subtitle is-6">
-                                            {item.programa}
+                                        <br/>
+
+                                        <p>
+                                            <strong>Instituição:</strong> {item.instituicao}
                                         </p>
 
                                         <p>
-                                            🌎 País: <strong>{item.pais_id}</strong>
+                                            <strong>Duração:</strong> {item.duracao}
                                         </p>
 
                                         <p>
-                                            ⏳ Duração: {item.duracao_meses} meses
+                                            <strong>Idioma:</strong> {item.nivel_idioma}
                                         </p>
 
                                         <p>
-                                            🎓 Vagas: {item.vagas}
+                                            <strong>Bolsa:</strong> {item.bolsa ? "Sim" : "Não"}
                                         </p>
+
+                                        <p>
+                                            <strong>Custo:</strong> {item.custo}
+                                        </p>
+
+                                    </div>
+
+                                    <div className="column is-3 has-text-centered">
+
+                                        <span className="tag is-primary mb-4">
+                                            {item.tipo}
+                                        </span>
+
+                                        <br/>
+
+                                        <a
+                                            href={item.link_oficial}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="button is-link is-fullwidth"
+                                        >
+                                            Site Oficial
+                                        </a>
+
                                     </div>
 
                                 </div>
 
                             </div>
-                        ))}
 
-                    </div>
+                        </div>
+
+                    ))}
+
                 </div>
+
             </section>
+
         </>
     );
+
 }
 
 export default InterDetalhes;

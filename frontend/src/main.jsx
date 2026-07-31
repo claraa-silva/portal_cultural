@@ -63,13 +63,8 @@ const router = createBrowserRouter([
         element: <Experiencias />
       },
       {
-<<<<<<< HEAD
         path: "/dicas",
         element: <Dicas />
-=======
-        path: "/destinos/:iddestino",
-        element: <Destinos />
->>>>>>> 8812ec0b39ccda6d63895272b70d3104b0e09441
       }
     ]
   }
