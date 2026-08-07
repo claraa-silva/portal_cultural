@@ -106,6 +106,50 @@ create table eventos(
     primary key(id)
 );
 
+CREATE TABLE intercambios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    pais_id CHAR(2) NOT NULL,
+
+    titulo VARCHAR(150) NOT NULL,
+
+    descricao TEXT,
+
+    tipo VARCHAR(50) NOT NULL,
+
+    instituicao VARCHAR(150),
+
+    duracao VARCHAR(50),
+
+    custo DECIMAL(10,2),
+
+    moeda CHAR(3),
+
+    bolsa BOOLEAN DEFAULT FALSE,
+
+    nivel_idioma VARCHAR(50),
+
+    idade_minima INT,
+
+    idade_maxima INT,
+
+    imagem_url TEXT,
+
+    link_oficial TEXT,
+
+    ativo BOOLEAN DEFAULT TRUE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT fk_intercambio_pais
+        FOREIGN KEY (pais_id)
+        REFERENCES pais(id)
+        ON DELETE CASCADE
+);
+
+
+
+
 # inserts - país
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.", "uruguai.jpg");
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.", "argentina.jpg");
@@ -188,11 +232,99 @@ INSERT INTO eventos (nome, loc, epoca, descricao) VALUES
 ('Fiesta de la Candelaria', ' Puno, Peru',  'Entre fevereiro e  março', 'Um evento religioso e cultural que mistura tradições indígenas e católicas, com danças e procissões ao redor do Lago Titicaca.'),
 ('Carnaval de Oruro', 'Bolívia',  'Entre fevereiro e  março', 'Declarado Patrimônio Imaterial da Humanidade pela UNESCO, o carnaval de Oruro é uma explosão de cores e folclore.');
 
+-- Bolívia
+INSERT INTO intercambios
+(pais_id,titulo,descricao,tipo,instituicao,duracao,custo,moeda,bolsa,nivel_idioma)
+VALUES
+(
+'BO',
+'Programa UMSA',
+'Programa de mobilidade acadêmica.',
+'Acadêmico',
+'Universidad Mayor de San Andrés',
+'1 semestre',
+0,
+'BOB',
+TRUE,
+'B1'
+);
 
+-- Colômbia
+INSERT INTO intercambios
+(pais_id,titulo,descricao,tipo,instituicao,duracao,custo,moeda,bolsa,nivel_idioma)
+VALUES
+(
+'CO',
+'Programa Internacional',
+'Intercâmbio universitário.',
+'Acadêmico',
+'Universidad Nacional de Colombia',
+'6 meses',
+0,
+'COP',
+TRUE,
+'B2'
+);
+
+-- Peru
+INSERT INTO intercambios
+(pais_id,titulo,descricao,tipo,instituicao,duracao,custo,moeda,bolsa,nivel_idioma)
+VALUES
+(
+'PE',
+'Intercâmbio PUCP',
+'Programa para estudantes estrangeiros.',
+'Acadêmico',
+'Pontificia Universidad Católica del Perú',
+'1 semestre',
+3000,
+'PEN',
+FALSE,
+'B1'
+);
+-- Argentina
+INSERT INTO intercambios
+(pais_id,titulo,descricao,tipo,instituicao,duracao,custo,moeda,bolsa,nivel_idioma,idade_minima,idade_maxima,imagem_url,link_oficial)
+VALUES
+(
+'AR',
+'Intercâmbio Acadêmico UBA',
+'Estude durante um semestre na Universidad de Buenos Aires.',
+'Acadêmico',
+'Universidad de Buenos Aires',
+'6 meses',
+0,
+'ARS',
+TRUE,
+'B1',
+18,
+30,
+'uba.jpg',
+'https://www.uba.ar'
+),
+
+(
+'AR',
+'Curso Intensivo de Espanhol',
+'Curso de espanhol para estrangeiros.',
+'Idioma',
+'Universidad de Morón',
+'3 meses',
+1200,
+'USD',
+FALSE,
+'A1',
+16,
+60,
+'moron.jpg',
+'https://www.unimoron.edu.ar'
+);
 
 select * from pais; 
 select * from dicas;
 select * from experiencias;
 select * from universidades;
+
+select * from intercambios;
 
 
