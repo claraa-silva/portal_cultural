@@ -147,6 +147,9 @@ CREATE TABLE intercambios (
         ON DELETE CASCADE
 );
 
+
+
+
 # inserts - país
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("UY", 'Uruguai', "O Uruguai tornou-se independente em 1828, após disputas entre Brasil e Argentina. No início do século XX, destacou-se por reformas sociais avançadas na região. Passou por uma ditadura militar entre 1973 e 1985. Hoje é reconhecido por sua estabilidade democrática e altos índices de desenvolvimento humano na América Latina.", "uruguai.jpg");
 INSERT INTO pais (id, nome, contexto, url_imagem) VALUES ("AR", 'Argentina', "A Argentina conquistou sua independência da Espanha em 1816. Durante o século XIX, enfrentou conflitos internos entre federalistas e unitários. No século XX, viveu instabilidade política, incluindo o governo de Juan Domingo Perón e períodos de ditadura militar (1976–1983). Após a redemocratização, consolidou-se como uma das principais economias da América do Sul, apesar de recorrentes crises econômicas.", "argentina.jpg");
@@ -316,12 +319,119 @@ FALSE,
 'moron.jpg',
 'https://www.unimoron.edu.ar'
 );
+INSERT INTO intercambios
+(pais_id, titulo, descricao, tipo, instituicao, duracao, custo, moeda, bolsa, nivel_idioma, idade_minima, idade_maxima, imagem_url, link_oficial)
+VALUES
+
+-- Paraguai
+(
+'PY',
+'Programa de Mobilidade Acadêmica - Universidad Nacional de Asunción',
+'Programa destinado a estudantes universitários interessados em cursar um semestre na principal universidade pública do Paraguai.',
+'Graduação',
+'Universidad Nacional de Asunción',
+'1 semestre',
+0.00,
+'PYG',
+TRUE,
+'Espanhol intermediário',
+18,
+30,
+'una.jpg',
+'https://www.una.py'
+),
+
+(
+'PY',
+'Curso Intensivo de Espanhol em Assunção',
+'Curso de imersão na língua espanhola com atividades culturais e visitas guiadas.',
+'Curso de Idiomas',
+'Instituto Cultural Paraguayo',
+'2 meses',
+1800.00,
+'PYG',
+FALSE,
+'Básico',
+16,
+60,
+'espanhol-py.jpg',
+'https://www.icp.edu.py'
+),
+
+-- Uruguai
+(
+'UY',
+'Intercâmbio Acadêmico - Universidad de la República',
+'Programa para estudantes estrangeiros realizarem disciplinas durante um semestre letivo.',
+'Graduação',
+'Universidad de la República',
+'1 semestre',
+0.00,
+'UYU',
+TRUE,
+'Espanhol intermediário',
+18,
+35,
+'udelar.jpg',
+'https://udelar.edu.uy'
+),
+
+(
+'UY',
+'Curso de Espanhol e Cultura Uruguaia',
+'Curso voltado para estudantes internacionais interessados na cultura e idioma do Uruguai.',
+'Curso de Idiomas',
+'Universidad ORT Uruguay',
+'3 meses',
+1200.00,
+'UYU',
+FALSE,
+'Básico',
+16,
+60,
+'ort.jpg',
+'https://www.ort.edu.uy'
+),
+
+-- Venezuela
+(
+'VE',
+'Programa de Mobilidade - Universidad Central de Venezuela',
+'Programa acadêmico voltado para intercâmbio universitário em diversas áreas do conhecimento.',
+'Graduação',
+'Universidad Central de Venezuela',
+'1 semestre',
+0.00,
+'VES',
+TRUE,
+'Espanhol avançado',
+18,
+35,
+'ucv.jpg',
+'https://www.ucv.ve'
+),
+
+(
+'VE',
+'Curso de Espanhol para Estrangeiros',
+'Curso intensivo de língua espanhola com foco em comunicação e cultura venezuelana.',
+'Curso de Idiomas',
+'Instituto de Idiomas de Caracas',
+'10 semanas',
+900.00,
+'VES',
+FALSE,
+'Básico',
+16,
+60,
+'idiomas-ve.jpg',
+'https://www.ucv.ve'
+);
 
 select * from pais; 
 select * from dicas;
 select * from experiencias;
 select * from universidades;
-
 select * from intercambios;
 
 
