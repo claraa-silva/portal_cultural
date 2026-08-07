@@ -30,7 +30,7 @@ function Intercambios() {
                             <div className="card-image">
                                 <figure className="image is-4by3">
                                     <img
-                                        src={pais.imagem_url}
+                                        src={`/imagens/paises/${pais.url_imagem}`}
                                         alt={pais.nome}
                                     />
                                 </figure>
