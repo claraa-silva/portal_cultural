@@ -16,41 +16,43 @@ function Intercambios() {
     }, [])
 
     return (
-        
-        <div className="columns is-multiline is-centered p-6 mt-6">
+        <>
+            <section className="inter">
+                <div className="columns is-multiline is-centered p-6 mt-6">
 
-            {paises.map((pais) => (
+                    {paises.map((pais) => (
 
-                <div className="column is-3" key={pais.id}>
+                        <div className="column is-3" key={pais.id}>
 
-                    <Link to={`/intercambios/${pais.id}`}>
+                            <Link to={`/intercambios/${pais.id}`}>
 
-                        <div className="card">
+                                <div className="card">
 
-                            <div className="card-image">
-                                <figure className="image is-4by3">
-                                    <img
-                                        src={`/imagens/paises/${pais.url_imagem}`}
-                                        alt={pais.nome}
-                                    />
-                                </figure>
-                            </div>
+                                    <div className="card-image">
+                                        <figure className="image is-4by3">
+                                            <img
+                                                src={`/imagens/paises/${pais.url_imagem}`}
+                                                alt={pais.nome}
+                                            />
+                                        </figure>
+                                    </div>
 
-                            <div className="card-content">
-                                <p className="title is-4">
-                                    {pais.nome}
-                                </p>
-                            </div>
+                                    <div className="card-content">
+                                        <p className="title is-4">
+                                            {pais.nome}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </Link>
 
                         </div>
 
-                    </Link>
+                    ))}
 
                 </div>
-
-            ))}
-
-        </div>
+            </section>
+        </>
     )
 }
 

@@ -307,9 +307,8 @@ INSERT INTO expressoes_idiomaticas (id, texto, significado) VALUES
 (53, 'Hacerse la chancha renga', 'Se fazer de desentendido'),
 (54, 'Poner los cuernos', 'Trair o parceiro(a)'),
 (55, 'Estar aguado', 'Estar sem energia, fraco'),
-(56, 'Echar un polvo', 'Ter relação sexual (coloquial)'),
-(57, 'Hablar paja', 'Falar besteira, enrolar'),
-(58, 'Estar chineado', 'Estar mimado, cheio de atenção');
+(56, 'Hablar paja', 'Falar besteira, enrolar'),
+(57, 'Estar chineado', 'Estar mimado, cheio de atenção');
 
 SELECT * FROM pais;
 SELECT * FROM dicas;
