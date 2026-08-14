@@ -6,7 +6,7 @@ import './css/index.css'
 
 import App from './App.jsx'
 import Mapa from './telas/Mapa.jsx'
-import Dicas from './telas/Dicas.jsx'
+import Dicas from './telas/DIcas.jsx'
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
 import Experiencias from './telas/Experiencias.jsx'

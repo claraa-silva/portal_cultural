@@ -1,0 +1,49 @@
+body{
+  background-color: black;
+}
+#aeroporto {
+  color: white;
+}
+
+#idioma {
+    min-height: 100vh;
+    padding: 100px 40px 60px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+  }
+  
+  #idioma h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .lista {
+    margin: 0 auto;
+    padding-left: 40px;
+    max-width: 900px;
+    color: white;
+  }
+  
+  .lista li {
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .lista li strong {
+    color: white;
+  }
+  
+  .lista li p {
+    margin-top: 10px;
+    color: #ddd;
+  }
+  
+  .botao-significado {
+    margin-left: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+  }

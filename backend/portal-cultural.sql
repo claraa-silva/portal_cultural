@@ -58,15 +58,10 @@ CREATE TABLE ingredientes (
 
 CREATE TABLE expressoes_idiomaticas (
     id INT NOT NULL PRIMARY KEY,
-    id_pais CHAR(2) NOT NULL,
+    id_pais CHAR(2),
     texto TEXT,
     significado TEXT,
-    exemplo TEXT,
-
-    CONSTRAINT fk_expressoes_pais
-        FOREIGN KEY (id_pais)
-        REFERENCES pais(id)
-        ON DELETE CASCADE
+    exemplo TEXT
 );
 
 CREATE TABLE exemplos (
@@ -256,6 +251,65 @@ INSERT INTO intercambios (pais_id, titulo, descricao, tipo, instituicao, duracao
 ('VE', 'Programa de Mobilidade - Universidad Central de Venezuela', 'Programa acadêmico voltado para intercâmbio universitário em diversas áreas do conhecimento.', 'Graduação', 'Universidad Central de Venezuela', '1 semestre', 0.00, 'VES', TRUE, 'Espanhol avançado', 18, 35, 'ucv.jpg', 'https://www.ucv.ve'),
 ('VE', 'Curso de Espanhol para Estrangeiros', 'Curso intensivo de língua espanhola com foco em comunicação e cultura venezuelana.', 'Curso de Idiomas', 'Instituto de Idiomas de Caracas', '10 semanas', 900.00, 'VES', FALSE, 'Básico', 16, 60, 'idiomas-ve.jpg', 'https://www.ucv.ve');
 
+INSERT INTO expressoes_idiomaticas (id, texto, significado) VALUES
+(1, 'Más vale tarde que nunca', 'Antes tarde do que nunca'),
+(2, 'Estar en las nubes', 'Estar distraído, com a cabeça no mundo da lua'),
+(3, 'A lo hecho, pecho', 'O que está feito, está feito; encarar as consequências'),
+(4, 'Meter la pata', 'Cometer uma gafe, pisar na bola'),
+(5, 'Ser pan comido', 'Ser muito fácil'),
+(6, 'No tener pelos en la lengua', 'Falar sem rodeios, ser direto'),
+(7, 'Costar un ojo de la cara', 'Ser muito caro'),
+(8, 'Estar sin blanca', 'Estar sem dinheiro, estar quebrado'),
+(9, 'Dormirse en los laureles', 'Acomodar-se após conquistar algo'),
+(10, 'Dar en el clavo', 'Acertar em cheio'),
+(11, 'Estar hecho polvo', 'Estar muito cansado, exausto'),
+(12, 'Hacerse la vista gorda', 'Fingir que não vê, fazer vista grossa'),
+(13, 'Estar de mala leche', 'Estar de mau humor'),
+(14, 'Llevarse como el perro y el gato', 'Viver brigando, como cão e gato'),
+(15, 'Ser un cero a la izquierda', 'Não ter importância, ser irrelevante'),
+(16, 'No pegar ojo', 'Não conseguir dormir'),
+(17, 'Ser uña y carne', 'Ser muito próximo, inseparável'),
+(18, 'A otro perro con ese hueso', 'Não cair nessa, não acreditar'),
+(19, 'Estar como una cabra', 'Ser meio maluco, excêntrico'),
+(20, 'Ahogarse en un vaso de agua', 'Fazer tempestade em copo d''água'),
+(21, 'Quedarse de piedra', 'Ficar chocado, paralisado de surpresa'),
+(22, 'Tirar la toalla', 'Desistir, jogar a toalha'),
+(23, 'Ponerse las pilas', 'Se esforçar, ficar mais ativo'),
+(24, 'Ser la oveja negra', 'Ser a ovelha negra da família ou grupo'),
+(25, 'No tener dos dedos de frente', 'Ser pouco inteligente, sem juízo'),
+(26, 'Estar con el alma en vilo', 'Estar ansioso, preocupado'),
+(27, 'Estar entre la espada y la pared', 'Estar numa situação difícil, sem saída'),
+(28, 'Hacer borrón y cuenta nueva', 'Deixar o passado para trás, recomeçar'),
+(29, 'Buscarle tres pies al gato', 'Complicar as coisas desnecessariamente'),
+(30, 'Más vale pájaro en mano que ciento volando', 'Melhor um pássaro na mão do que dois voando'),
+(31, 'No tener ni un peso', 'Estar sem dinheiro, quebrado'),
+(32, 'Estar frito', 'Estar em apuros, sem saída'),
+(33, 'Hacerse pato', 'Fingir que não entende, enrolar'),
+(34, 'Ponerse la camiseta', 'Vestir a camisa, se comprometer de verdade'),
+(35, 'Tirar la onda', 'Flertar, paquerar'),
+(36, 'Echar la mano', 'Ajudar alguém'),
+(37, 'Dar palo', 'Criticar fortemente, dar bronca'),
+(38, 'Estar hasta las narices', 'Estar de saco cheio'),
+(39, 'Estar de malas pulgas', 'Estar de mau humor'),
+(40, 'Hacerse bolas', 'Se confundir, se enrolar'),
+(41, 'Estar al tiro', 'Estar atento, esperto'),
+(42, 'Sacar la vuelta', 'Evitar responsabilidades, enrolar'),
+(43, 'Llevar la contra', 'Contrariar alguém'),
+(44, 'Ir al grano', 'Ir direto ao ponto'),
+(45, 'Ser harina de otro costal', 'Ser outro assunto, não ter relação'),
+(46, 'Estar pintado', 'Não ser levado em conta, estar ignorado'),
+(47, 'No dar bola', 'Não dar atenção, ignorar'),
+(48, 'Ser macanudo', 'Ser muito legal, gente boa'),
+(49, 'Hacerse el vivo', 'Fingir esperteza, querer se aproveitar'),
+(50, 'Mandarse una macana', 'Fazer besteira'),
+(51, 'Estar chiflado', 'Ser meio maluco'),
+(52, 'Estar reventado', 'Estar exausto'),
+(53, 'Hacerse la chancha renga', 'Se fazer de desentendido'),
+(54, 'Poner los cuernos', 'Trair o parceiro(a)'),
+(55, 'Estar aguado', 'Estar sem energia, fraco'),
+(56, 'Echar un polvo', 'Ter relação sexual (coloquial)'),
+(57, 'Hablar paja', 'Falar besteira, enrolar'),
+(58, 'Estar chineado', 'Estar mimado, cheio de atenção');
 
 SELECT * FROM pais;
 SELECT * FROM dicas;
@@ -264,3 +318,6 @@ SELECT * FROM universidades;
 SELECT * FROM intercambios;
 SELECT * FROM destinos;
 SELECT * FROM eventos;
+SELECT * FROM expressoes_idiomaticas;
+
+
