@@ -1,0 +1,158 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition:
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.5rem;
+  transition: 0.35s ease;
+}
+
+.navbar-logo {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  text-decoration: none !important;
+  line-height: 1.1;
+  gap: 4px;
+}
+
+.navbar-logo-title {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navbar-logo-subtitle {
+  display: block;
+  color: #fbff00;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li span {
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 2px;
+
+  background-color: #E2B93B;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.navbar-links li:hover span {
+  width: 100%;
+}
+
+.navbar-button {
+  background-color: #E2B93B;
+  color: #26302A !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-button:hover {
+  background-color: #F0CF62;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+}
+
+.navbar-scrolled {
+  background-color: rgba(241, 241, 241, 0.856);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-scrolled .navbar-logo-title {
+  color: #1984d6;
+}
+
+.navbar-scrolled .navbar-logo-subtitle {
+  color: #08783E;
+}
+
+.navbar-scrolled .navbar-links a {
+  color: #174A70;
+}
+
+.navbar-scrolled .navbar-links li span {
+  background-color: #08783E;
+}
+
+.navbar-scrolled .navbar-button {
+  background-color: #E2B93B;
+  color: #26302A !important;
+}
+
+.navbar-scrolled .navbar-links a:hover {
+  color: #08783E;
+}
+
+@media (max-width: 900px) {
+  .navbar-content {
+    padding: 1rem 1.5rem;
+  }
+  .navbar-links {
+    gap: 1.5rem;
+  }
+  .navbar-links a {
+    font-size: 0.9rem;
+  }
+  .navbar-button {
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-button {
+    font-size: 0.85rem;
+  }
+}

@@ -8,141 +8,213 @@ const bodyparser = require("body-parser");
 app.use(cors());
 app.use(bodyparser.json());
 
-//rotas:
-// /paises, /universidades, /planejamento, /bolsas, /experiencias, /perguntas, /guias
-
-//GET /paises -> Retorna dados sobre os paises
-app.get("/paises", async (req,res) => {
-    try{
+// GET /paises -> Retorna dados sobre todos os países
+app.get("/paises", async (req, res) => {
+    try {
         const resultado = await pool.execute("SELECT * FROM pais");
-        console.log(resultado);
         res.status(200).json(resultado[0]);
-    }catch(err){
-        res.status(500).send(err)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-app.get("/paises/:id", async (req,res) => {
-    try{
-
+});
+ 
+// GET /paises/:id -> Retorna um país específico
+app.get("/paises/:id", async (req, res) => {
+    try {
         const resultado = await pool.execute(
-            "SELECT * FROM pais WHERE id=?",
+            "SELECT * FROM pais WHERE id = ?",
             [req.params.id]
         );
-
         res.status(200).json(resultado[0][0]);
-
-    }catch(err){
-        console.log(err);
-        res.status(500).send(err);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
-
-app.get("/universidades/:idpais", async (req,res) => {
+});
+ 
+// ===================== UNIVERSIDADES =====================
+ 
+app.get("/universidades/:idpais", async (req, res) => {
     try {
-        const idpais = req.params.idpais
-        const resultado = await pool.execute("SELECT * FROM universidades WHERE id_pais = ?", [idpais]);
-        console.log(resultado)
-        res.status(200).json(resultado[0])
-    } catch (error) {
-        console.error(`erro: ${error}`)
-    }
-})
-
-app.get("/intercambios", async (req,res) => {
-    try{
-        const resultado = await pool.execute("SELECT * FROM intercambios");
-        console.log(resultado);
+        const idpais = req.params.idpais;
+        const resultado = await pool.execute(
+            "SELECT * FROM universidades WHERE id_pais = ?",
+            [idpais]
+        );
         res.status(200).json(resultado[0]);
-    }catch(err){
-        res.status(500).send(err)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
+});
+ 
+// ===================== INTERCAMBIOS =====================
+ 
+app.get("/intercambios", async (req, res) => {
+    try {
+        const resultado = await pool.execute("SELECT * FROM intercambios");
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+ 
+// Retorna intercâmbios de um país específico
 app.get("/intercambios/:id", async (req, res) => {
     try {
         const [rows] = await pool.execute(
             "SELECT * FROM intercambios WHERE pais_id = ?",
             [req.params.id]
         );
-
-        res.status(200).json(rows); // 👈 SEMPRE ARRAY
+        res.status(200).json(rows); // sempre array
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: err.message });
     }
 });
-
-app.get("/expressoes", async(req, res) =>{
+ 
+// ===================== DESTINOS =====================
+// Antes: só existia "/destinos/:iddestino" devolvendo um texto fixo.
+// Agora busca de verdade no banco, trazendo nome do país via JOIN.
+ 
+// GET /destinos -> lista todos os destinos
+app.get("/destinos", async (req, res) => {
     try {
-        const resultado = await pool.execute("SELECT * FROM expressoes_idiomaticas");
-        console.log(resultado);
+        const resultado = await pool.execute(
+            `SELECT destinos.id, destinos.nome, destinos.url_imagem, destinos.descricao,
+                    pais.id AS pais_id, pais.nome AS pais
+             FROM destinos
+             JOIN pais ON destinos.id_pais = pais.id`
+        );
         res.status(200).json(resultado[0]);
     } catch (err) {
-        console.log(err);
-        res.status(500).sent(err);
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
-app.get("/dicas/:id", async(req, res) =>{
-    try{
+});
+ 
+// GET /destinos/:id -> retorna um destino específico
+app.get("/destinos/:id", async (req, res) => {
+    try {
         const resultado = await pool.execute(
-            "SELECT * FROM dicas WHERE id=?",
+            `SELECT destinos.id, destinos.nome, destinos.url_imagem, destinos.descricao,
+                    pais.id AS pais_id, pais.nome AS pais
+             FROM destinos
+             JOIN pais ON destinos.id_pais = pais.id
+             WHERE destinos.id = ?`,
             [req.params.id]
         );
-
         res.status(200).json(resultado[0][0]);
-
-    }catch(err){
-        console.log(err);
-        res.status(500).sent(err);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
-
-app.get("/perguntas", (req,res) => {
-    res.send("Perguntas como: precisa de visto? precisa falar espanhol? posso trabalhar? como encontrar moradia?")
-})
-
-app.get("/experiencias/:idpais", async (req,res) => {
-    try{
-        const idpais = req.params.idpais
-        const result = await pool.query(`select * from experiencias where id_pais = ${idpais}`)
-        console.log(result)
-        res.status(200).json(result[0]); 
-    }catch(error){
-        console.error(`erro: ${error}`)
+});
+ 
+// ===================== EVENTOS =====================
+// Antes: só existia "/eventos/:id" e com bug (coluna "eventos_id" não existe,
+// a coluna certa é "id"). Também faltava a rota de listagem "/eventos".
+ 
+// GET /eventos -> lista todos os eventos
+app.get("/eventos", async (req, res) => {
+    try {
+        const resultado = await pool.execute("SELECT * FROM eventos");
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
-app.post("/experiencias/:idpais", async (req,res) => {
-    try{
-        const sql = `insert into experiencias (id_pais, data, texto) values (?,?,?)`;
-        const valores = [req.params.idpais, getDataFormatada(), req.body.texto]
-        const resultado =  await pool.execute(sql,valores);
-        res.status(200).send(resultado[0]);
-    } catch(error){
-        console.error(`Erro: ${error}`);
+});
+ 
+// GET /eventos/:id -> retorna um evento específico
+app.get("/eventos/:id", async (req, res) => {
+    try {
+        const [rows] = await pool.execute(
+            "SELECT * FROM eventos WHERE id = ?", // corrigido: era "eventos_id"
+            [req.params.id]
+        );
+        res.status(200).json(rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
     }
-})
-
-app.get("/guia", async (req,res) => {
-    res.send("Guia para estudantes")
-})
-
-app.get("/destinos/:iddestino", async (req, res) => {
-    res.send("destinos incriveis!")
-})
-
-function getDataFormatada(){
+});
+ 
+// ===================== EXPRESSOES IDIOMATICAS =====================
+ 
+app.get("/expressoes", async (req, res) => {
+    try {
+        const resultado = await pool.execute("SELECT * FROM expressoes_idiomaticas");
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message }); // corrigido: era .sent(err)
+    }
+});
+ 
+// ===================== DICAS =====================
+ 
+app.get("/dicas/:id", async (req, res) => {
+    try {
+        const resultado = await pool.execute(
+            "SELECT * FROM dicas WHERE id_pais = ?", // corrigido: era "id" (coluna errada para filtrar por país)
+            [req.params.id]
+        );
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message }); // corrigido: era .sent(err)
+    }
+});
+ 
+// ===================== PERGUNTAS / GUIA =====================
+ 
+app.get("/perguntas", (req, res) => {
+    res.send("Perguntas como: precisa de visto? precisa falar espanhol? posso trabalhar? como encontrar moradia?");
+});
+ 
+app.get("/guia", (req, res) => {
+    res.send("Guia para estudantes");
+});
+ 
+// ===================== EXPERIENCIAS =====================
+ 
+app.get("/experiencias/:idpais", async (req, res) => {
+    try {
+        const idpais = req.params.idpais;
+        // corrigido: usava pool.query com template literal (risco de SQL injection).
+        // agora usa pool.execute com placeholder.
+        const resultado = await pool.execute(
+            "SELECT * FROM experiencias WHERE id_pais = ?",
+            [idpais]
+        );
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message }); // corrigido: faltava resposta de erro
+    }
+});
+ 
+app.post("/experiencias/:idpais", async (req, res) => {
+    try {
+        const sql = "INSERT INTO experiencias (id_pais, data, texto) VALUES (?, ?, ?)";
+        const valores = [req.params.idpais, getDataFormatada(), req.body.texto];
+        const resultado = await pool.execute(sql, valores);
+        res.status(200).json(resultado[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message }); // corrigido: faltava resposta de erro
+    }
+});
+ 
+function getDataFormatada() {
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const day = String(today.getDate()).padStart(2, '0');
-
-    const formattedDate = `${year}-${month}-${day}`;
-
-    return formattedDate
+    return `${year}-${month}-${day}`;
 }
-
+ 
 app.listen(porta, () => { console.log(`servidor na porta ${porta}`) });

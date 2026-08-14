@@ -17,7 +17,7 @@ function Intercambios() {
 
     return (
         
-        <div className="columns is-multiline is-centered p-6">
+        <div className="columns is-multiline is-centered p-6 mt-6">
 
             {paises.map((pais) => (
 

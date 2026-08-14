@@ -13,7 +13,6 @@ import Experiencias from './telas/Experiencias.jsx'
 import Intercambios from './telas/Intercambios.jsx'
 import InterDetalhes from './telas/InterDetalhes.jsx'
 import Pais from './telas/Pais.jsx'
-import Destinos from './telas/Destinos.jsx'
 
 
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
@@ -65,10 +64,6 @@ const router = createBrowserRouter([
       {
         path: "/dicas",
         element: <Dicas />
-      },
-      {
-        path: "/destinos/:iddestino",
-        element: <Destinos />
       }
     ]
   }
