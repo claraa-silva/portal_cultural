@@ -1,5 +1,5 @@
 body{
-    background-color: #F3EBDD;
+    background-color: #1F5C42;
 }
 
 .hero-title{
@@ -35,7 +35,7 @@ body{
 
     padding:18px 24px;
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255, 255, 255, 0.12);
     border:1px solid rgba(255,255,255,.25);
     backdrop-filter:blur(8px);
 
@@ -58,9 +58,20 @@ body{
 }
 
 .card{
-    background-color: gray;
+    background-color: #34805f;
+
 }
 
 .card p{
     color: #F3EBDD;
+}
+
+.inter-section {
+    color: white;
+}
+
+.inter-section .title,
+.inter-section .subtitle,
+.inter-section strong {
+    color: #07301f;
 }

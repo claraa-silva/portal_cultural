@@ -33,7 +33,7 @@ function InterDetalhes() {
             >
                 <div className="hero-body has-text-white">
 
-                    <h1 className="title hero-title">
+                    <h1 className="title hero-title ">
                         Intercâmbio em {pais.nome}
                     </h1>
 
@@ -44,11 +44,11 @@ function InterDetalhes() {
                 </div>
             </section>
 
-            <section className="section">
+            <section className="section inter-section">
 
-                <div className="container">
+                <div className="container has-text-white">
 
-                    <h2 className="title">
+                    <h2 className="title has-text-white">
                         Programas disponíveis
                     </h2>
 
@@ -63,7 +63,7 @@ function InterDetalhes() {
 
                                 <div className="columns">
 
-                                    <div className="column is-9">
+                                    <div className="column is-9 ">
 
                                         <h3 className="title is-4">
                                             {item.titulo}
@@ -99,7 +99,7 @@ function InterDetalhes() {
 
                                     <div className="column is-3 has-text-centered">
 
-                                        <span className="tag is-primary mb-4">
+                                        <span className="tag is-primary-25-invert mb-4">
                                             {item.tipo}
                                         </span>
 
@@ -109,7 +109,7 @@ function InterDetalhes() {
                                             href={item.link_oficial}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="button is-link is-fullwidth"
+                                            className="button is-fullwidth is-primary-25-invert"
                                         >
                                             Site Oficial
                                         </a>

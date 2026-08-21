@@ -9,9 +9,9 @@ import Mapa from './telas/Mapa.jsx'
 import Dicas from './telas/DIcas.jsx'
 import DetalhesPais from './telas/DetalhesPais.jsx'
 import Navbar from './componentes/Navbar.jsx'
-import Experiencias from './telas/Experiencias.jsx'
 import Intercambios from './telas/Intercambios.jsx'
 import InterDetalhes from './telas/InterDetalhes.jsx'
+import Eventos from './telas/EventosDetalhes.jsx';
 import Pais from './telas/Pais.jsx'
 
 
@@ -58,8 +58,8 @@ const router = createBrowserRouter([
         element: <DetalhesPais />
       },
       {
-        path: "/experiencias/:idpais",
-        element: <Experiencias />
+        path: "/eventos",
+        element: <Eventos />
       },
       {
         path: "/dicas",
