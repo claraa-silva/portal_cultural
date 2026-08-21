@@ -180,7 +180,21 @@ app.get("/guia", (req, res) => {
 });
  
 // ===================== EXPERIENCIAS =====================
- 
+
+app.get("/experiencias", async (req, res) => {
+    try {
+        const [resultado] = await pool.execute(
+            "SELECT * FROM experiencias"
+        );
+
+        res.status(200).json(resultado);
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.get("/experiencias/:idpais", async (req, res) => {
     try {
         const idpais = req.params.idpais;
@@ -199,8 +213,11 @@ app.get("/experiencias/:idpais", async (req, res) => {
  
 app.post("/experiencias/:idpais", async (req, res) => {
     try {
-        const sql = "INSERT INTO experiencias (id_pais, data, texto) VALUES (?, ?, ?)";
-        const valores = [req.params.idpais, getDataFormatada(), req.body.texto];
+        console.log("PARAM ID:", req.params.idpais);
+        console.log("BODY RECEBIDO:", req.body);
+
+        const sql = "INSERT INTO experiencias (id_pais, data, titulo, texto, nome) VALUES (?, ?, ?, ?, ?)";
+        const valores = [req.params.idpais, getDataFormatada(), req.body.titulo, req.body.texto, req.body.nome];
         const resultado = await pool.execute(sql, valores);
         res.status(200).json(resultado[0]);
     } catch (err) {

@@ -1,49 +1,282 @@
 body{
   background-color: black;
 }
+
+.hero-dicas{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("/imagens/aeroporto.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* section: aeroporto */
+
 #aeroporto {
   color: white;
 }
 
+/* section: expressoes idiomaticas */
+
 #idioma {
-    min-height: 100vh;
-    padding: 100px 40px 60px;
-    box-sizing: border-box;
-    background-color: black;
-    color: white;
-  }
+  padding: 80px 8%;
+  background: #f8f5ef;
+  /* background: #f5f877; */
+  min-height: 500px;
+}
   
-  #idioma h2 {
-    color: white;
+#idioma h2 {
+
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2f3e46;
+  margin-bottom: 45px;
+  font-weight: 700;
+}
+
+.descricao-idioma {
+  max-width: 700px;
+  margin: -25px auto 40px;
+  text-align: center;
+
+  color: #68747a;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+  
+.lista {
+
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0;
+  list-style-position: inside;
+}
+
+  
+.LI {
+  position: relative;
+
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  padding: 20px 24px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.25s ease;
+}
+
+.LI:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.10);
+}
+
+.LI p {
+    margin: 18px 35px 5px 35px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e5e5e5;
+
+    color: #59636a;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+  
+.botao-significado {
+
+  float: right;
+
+  border: none;
+  background: transparent;
+
+  color: #588157;
+  font-size: 1.1rem;
+
+  cursor: pointer;
+
+  padding: 4px 8px;
+  border-radius: 50%;
+
+  transition: all 0.2s ease;
+}
+
+.botao-significado:hover {
+  background: #e9f0e6;
+  transform: scale(1.1);
+}
+
+
+/* section: experiencias */
+
+#experiencias {
+    padding: 80px 8%;
+    background: #f8f5ef;
+    min-height: 700px;
+}
+
+#experiencias h2 {
     text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .lista {
+    font-size: 2.5rem;
+    color: #2f3e46;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+#experiencias > p {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+
+    color: #68747a;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Card do formulário */
+
+.formulario-experiencia {
+    max-width: 850px;
     margin: 0 auto;
-    padding-left: 40px;
-    max-width: 900px;
-    color: white;
-  }
-  
-  .lista li {
-    margin-bottom: 20px;
-    color: white;
-  }
-  
-  .lista li strong {
-    color: white;
-  }
-  
-  .lista li p {
-    margin-top: 10px;
-    color: #ddd;
-  }
-  
-  .botao-significado {
-    margin-left: 10px;
+    padding: 40px;
+
+    background: white;
+    border-radius: 18px;
+
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 28px;
+}
+
+/* Cada campo */
+
+.formulario-experiencia > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Campo que ocupa a largura inteira */
+
+.formulario-experiencia > div:nth-child(3),
+.formulario-experiencia > div:nth-child(4) {
+    grid-column: 1 / -1;
+}
+
+.formulario-experiencia label {
+    margin-bottom: 8px;
+
+    color: #344e41;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Inputs e select */
+
+.formulario-experiencia input,
+.formulario-experiencia select,
+.formulario-experiencia textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d9ded8;
+    border-radius: 10px;
+
+    background: #fafbf9;
+
+    color: #344e41;
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition: all 0.2s ease;
+}
+
+/* Efeito ao clicar */
+
+.formulario-experiencia input:focus,
+.formulario-experiencia select:focus,
+.formulario-experiencia textarea:focus {
+    border-color: #588157;
+    background: white;
+
+    box-shadow: 0 0 0 3px rgba(88, 129, 87, 0.12);
+}
+
+/* Textarea */
+
+.formulario-experiencia textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.5;
+}
+
+/* Botão */
+
+.formulario-experiencia button {
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+    margin-top: 8px;
+
+    padding: 13px 28px;
+
     border: none;
-    background: transparent;
+    border-radius: 10px;
+
+    background: #588157;
     color: white;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+
     cursor: pointer;
-  }
+
+    transition: all 0.25s ease;
+}
+
+.formulario-experiencia button:hover {
+    background: #3a5a40;
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(52, 78, 65, 0.2);
+}
+
+.formulario-experiencia button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+
+    #experiencias {
+        padding: 60px 5%;
+    }
+
+    #experiencias h2 {
+        font-size: 2rem;
+    }
+
+    .formulario-experiencia {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .formulario-experiencia > div:nth-child(3),
+    .formulario-experiencia > div:nth-child(4) {
+        grid-column: auto;
+    }
+
+    .formulario-experiencia button {
+        grid-column: auto;
+        width: 100%;
+    }
+}

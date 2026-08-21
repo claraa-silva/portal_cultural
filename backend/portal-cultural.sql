@@ -78,6 +78,7 @@ CREATE TABLE exemplos (
 CREATE TABLE experiencias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_pais CHAR(2) NOT NULL,
+	titulo VARCHAR(150) NOT NULL,
     texto TEXT,
     data DATE,
 
@@ -318,5 +319,10 @@ SELECT * FROM intercambios;
 SELECT * FROM destinos;
 SELECT * FROM eventos;
 SELECT * FROM expressoes_idiomaticas;
+SELECT * FROM experiencias;
 
+ALTER TABLE experiencias ADD COLUMN nome TEXT NOT NULL;
+
+# teste
+DESCRIBE experiencias;
 
