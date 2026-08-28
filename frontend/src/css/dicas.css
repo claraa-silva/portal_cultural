@@ -280,3 +280,139 @@ body{
         width: 100%;
     }
 }
+
+/* filtro de seleção */
+
+#filtro {
+  padding: 60px 8%;
+  background: #344e41;
+  text-align: center;
+}
+
+#filtro h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+#filtro > p {
+  color: #dfe8df;
+  margin-bottom: 30px;
+}
+
+.filtro-botoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filtro-botoes button {
+  padding: 12px 22px;
+
+  border: 2px solid #a3b18a;
+  border-radius: 25px;
+
+  background: transparent;
+  color: white;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.filtro-botoes button:hover {
+  background: #a3b18a;
+  color: #344e41;
+  transform: translateY(-2px);
+}
+
+.filtro-botoes button.ativo {
+  background: #a3b18a;
+  color: #344e41;
+}
+
+@media (max-width: 700px) {
+
+  #filtro {
+      padding: 45px 5%;
+  }
+
+  #filtro h2 {
+      font-size: 1.8rem;
+  }
+
+  .filtro-botoes {
+      flex-direction: column;
+  }
+
+  .filtro-botoes button {
+      width: 100%;
+      max-width: 350px;
+  }
+
+}
+
+/* card - experiência */
+
+.experiencias-container {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.card-experiencia {
+  background-color: white;
+  padding: 28px;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+  text-align: left;
+
+  transition: 0.25s ease;
+}
+
+.card-experiencia:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-experiencia h3 {
+  color: #344e41;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.card-experiencia > p {
+  color: #59636a;
+  line-height: 1.6;
+}
+
+.info-experiencia {
+  margin-top: 20px;
+  padding-top: 15px;
+
+  border-top: 1px solid #e5e5e5;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #588157;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+
+  .experiencias-container {
+      grid-template-columns: 1fr;
+  }
+
+}
