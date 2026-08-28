@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import '../css/eventos.css'
 
 function EventosDetalhes() {
   const [eventos, setEventos] = useState([]);
@@ -21,7 +22,17 @@ function EventosDetalhes() {
 
   return (
     <>
-      <h2>Confira eventos</h2>
+      <section className="hero-eventos">
+          <div className="hero-overlay"></div>
+
+          <div className="hero-content">
+              <h1>Celebre a cultura da América Latina</h1>
+
+              <h2>
+                Descubra festas, tradições e experiências que revelam a diversidade e a riqueza cultural de cada país.
+              </h2>
+          </div>
+      </section>
 
       {carregando && <p>Carregando eventos...</p>}
       {erro && <p>{erro}</p>}
