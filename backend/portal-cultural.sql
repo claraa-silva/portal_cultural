@@ -311,6 +311,7 @@ INSERT INTO expressoes_idiomaticas (id, texto, significado) VALUES
 (56, 'Hablar paja', 'Falar besteira, enrolar'),
 (57, 'Estar chineado', 'Estar mimado, cheio de atenção');
 
+
 SELECT * FROM pais;
 SELECT * FROM dicas;
 SELECT * FROM experiencias;
@@ -322,6 +323,8 @@ SELECT * FROM expressoes_idiomaticas;
 SELECT * FROM experiencias;
 
 ALTER TABLE experiencias ADD COLUMN nome TEXT NOT NULL;
+
+insert into experiencias (id_pais, titulo, texto, nome) values ('AR', 'viagem diva', 'foi legal', 'alice');
 
 # teste
 DESCRIBE experiencias;
