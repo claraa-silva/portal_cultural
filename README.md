@@ -108,7 +108,7 @@ Após a inicialização, o terminal exibirá o endereço para acessar a aplicaç
 
 Geralmente, o projeto pode ser acessado em:
 ```
-http://localhost:3000
+http://localhost:8000
 ````
 
 Mantenha esse terminal aberto enquanto o Back-end estiver em execução.
@@ -140,7 +140,7 @@ Após a inicialização, o terminal exibirá o endereço para acessar a aplicaç
 
 Geralmente, o projeto pode ser acessado em:
 ```
-http://localhost:3000
+http://localhost:5173
 ````
 ## Comandos disponíveis
 
@@ -151,24 +151,6 @@ http://localhost:3000
 | `node index.js` | Inicia o Back-end |
 | `npm run dev` | Inicia o Front-end em modo de desenvolvimento |
 
-## Estrutura do projeto
-
-A estrutura principal do projeto é organizada da seguinte forma:
-
-```text
-portal_cultural/
-├── backend/
-│   ├── ...
-│   └── index.js
-│
-├── frontend/
-│   ├── ...
-│   └── ...
-│
-├── .gitignore
-├── banco.sql
-└── README.md
-````
 
 ## Sobre o projeto
 
