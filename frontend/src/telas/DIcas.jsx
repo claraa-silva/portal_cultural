@@ -222,7 +222,8 @@ function Dicas() {
                     </p>
 
                     <div className="experiencias-container">
-
+                    
+{/*                     
                         {relatos.map((experiencia) => (
 
                             <article
@@ -245,6 +246,44 @@ function Dicas() {
                                 </div>
 
                             </article>
+
+                        ))} */}
+
+                        {relatos.map((experiencia) => (
+
+                        <article className="card experiencia-card" key={experiencia.id}>
+
+                            <header className="card-header">
+                                <p className="card-header-title">
+                                    {experiencia.titulo}
+                                </p>
+                            </header>
+
+                            <div className="card-content">
+                                <div className="content">
+                                    <p>
+                                        {experiencia.texto}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <footer className="card-footer">
+
+                                <span className="card-footer-item">
+                                    👤 {experiencia.nome}
+                                </span>
+
+                                <span className="card-footer-item">
+                                    🌎 {experiencia.id_pais}
+                                </span>
+
+                                <span className="card-footer-item">
+                                    📅 {experiencia.data}
+                                </span>
+
+                            </footer>
+
+                        </article>
 
                         ))}
 

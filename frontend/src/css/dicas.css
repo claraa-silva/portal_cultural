@@ -359,7 +359,7 @@ body{
 
 /* card - experiência */
 
-.experiencias-container {
+/* .experiencias-container {
   max-width: 1000px;
   margin: 0 auto 60px;
 
@@ -408,6 +408,66 @@ body{
   color: #588157;
   font-size: 0.9rem;
 }
+
+@media (max-width: 700px) {
+
+  .experiencias-container {
+      grid-template-columns: 1fr;
+  }
+
+} */
+
+.experiencias-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.experiencia-card {
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho */
+
+.experiencia-card .card-header {
+  background-color: #588157;
+}
+
+.experiencia-card .card-header-title {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Conteúdo */
+
+.experiencia-card .card-content {
+  min-height: 180px;
+  background-color: white;
+}
+
+.experiencia-card .card-content p {
+  color: #59636a;
+  line-height: 1.6;
+}
+
+/* Rodapé */
+
+.experiencia-card .card-footer {
+  background-color: #f8f5ef;
+}
+
+.experiencia-card .card-footer-item {
+  color: #588157;
+  font-size: 0.9rem;
+}
+
+/* Celular */
 
 @media (max-width: 700px) {
 
