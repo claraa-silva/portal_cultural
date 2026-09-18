@@ -52,6 +52,9 @@ export default function Navbar() {
               <Link to="/eventos">Eventos</Link>
             </li>
 
+            <li>
+              <Link to="/experiencias">Experiências</Link>
+            </li>
           </ul>
         </nav>
 
