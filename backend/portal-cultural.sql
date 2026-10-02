@@ -324,8 +324,6 @@ SELECT * FROM experiencias;
 
 ALTER TABLE experiencias ADD COLUMN nome TEXT NOT NULL;
 
-insert into experiencias (id_pais, titulo, texto, nome) values ('AR', 'viagem diva', 'foi legal', 'alice');
-
 # teste
 DESCRIBE experiencias;
 

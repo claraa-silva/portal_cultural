@@ -69,7 +69,8 @@ function Dicas() {
             </section>
             {(filtro === "todos" || filtro === "aeroporto") && (
                 <section id="aeroporto">
-
+                   https://www.egali.com.br/blog/aeroporto-pela-primeira-vez/
+                    *ver se esse conteúdo presta
                 </section>
             )}
             {(filtro === "todos" || filtro === "idioma") && (

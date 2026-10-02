@@ -85,6 +85,21 @@ function Experiencias() {
             });
     }
 
+    
+    function chamar(){
+        location.reload();
+    }
+    
+    function formatarData(data){
+        let lista = data.split("T");
+        let novaData = lista[0].split("-");
+        let dia = novaData[2];
+        let mes = novaData[1]
+        let ano = novaData[0];
+        novaData = `${dia}/${mes}/${ano}`;
+        return novaData;
+    }
+    
     function getRelatos(){
         fetch(`http://localhost:8000/experiencias`)
             .then(res => {
@@ -102,11 +117,6 @@ function Experiencias() {
                 console.error("Erro ao buscar relatos:", error);
             });
     }
-
-    function chamar(){
-        location.reload()
-    }
-
     return(
         <>
             <section className="hero-experiencias">
@@ -153,7 +163,7 @@ function Experiencias() {
                                 </span>
 
                                 <span className="card-footer-item">
-                                    📅 {experiencia.data}
+                                    📅 {formatarData(experiencia.data)}
                                 </span>
 
                             </footer>
