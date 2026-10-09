@@ -103,6 +103,11 @@ function Dicas() {
                     </ol>
                 </section>
             )}
+            <section className="footer">
+                <h2>Portal Cultural</h2>
+                <p>Conectando culturas além das fronteiras.</p>
+                <p>Plataforma desenvolvida por estudantes do IFSP • 2026</p>
+            </section>
                 
         </>
     )
