@@ -30,7 +30,7 @@ function Eventos() {
       )}
 
       <div className="cards-container">
-        {eventos.map((evento) => (
+        {eventos.slice(0, 4).map((evento) => (
           <div className="evento-card" key={evento.id}>
             <div className="card-content">
               <div className="media">
